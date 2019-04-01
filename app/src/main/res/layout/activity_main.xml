@@ -23,15 +23,16 @@
     <android.support.design.widget.BottomNavigationView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/navigation"
+        android:id="@+id/buttom_nav_view"
+        android:theme="@style/AppTheme"
         android:layout_width="match_parent"
-        android:layout_height="74dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:background="@color/colorwhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:itemIconTint="@color/bottom_nav"
-        app:itemTextColor="@color/bottom_nav"
+        app:itemTextColor="@color/color_bnv_selected_text"
+        app:itemIconTint="@color/color_bnv_selected_text"
         app:menu="@menu/bottom_nav" />
 
 </android.support.constraint.ConstraintLayout>
