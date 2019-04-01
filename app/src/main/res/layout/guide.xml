@@ -5,7 +5,7 @@
     android:id="@+id/guide_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lb_default_brand_color"
+    android:background="@color/qmui_config_color_75_pure_black"
     android:orientation="vertical">
 
     <ImageView

@@ -5,4 +5,14 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colortop">#4DB6AC</color>
     <color name="colorwhite">#FFFFFF</color>
+    <color name="icon_gray">#101010</color>
+    <color name="bg_white">#F9F9F9</color>
+    <color name="theme">#4DB6AC</color>
+    <color name="bottom_nav">
+        <selector xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:color="@color/theme" android:state_checked="true"/>
+            <item android:color="@color/theme" android:state_pressed="true"/>
+            <item android:color="@color/colorwhite"/>
+        </selector>
+    </color>
 </resources>

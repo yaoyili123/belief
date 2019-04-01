@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/bn_sport"
+        android:title="@string/bottom_nav_sport"
+        android:icon="@drawable/ic_sport_b" />
+    <item android:id="@+id/bn_recipe"
+        android:title="@string/bottom_nav_recipe"
+        android:icon="@drawable/ic_eye_b" />
+    <item android:id="@+id/bn_comm"
+        android:title="@string/bottom_nav_comm"
+        android:icon="@drawable/ic_comm_b" />
+    <item android:id="@+id/bn_user"
+        android:title="@string/bottom_nav_user"
+        android:icon="@drawable/ic_user_b" />
+</menu>

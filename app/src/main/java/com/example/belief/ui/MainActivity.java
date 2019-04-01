@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.belief.R;
 
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
