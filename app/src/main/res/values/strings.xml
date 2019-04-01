@@ -16,4 +16,6 @@
     <string name="birthday">生日</string>
     <string name="city">城市</string>
     <string name="introduction">简介</string>
+    <string name="stable_food">主食</string>
+    <string name="breakfast">早餐</string>
 </resources>

@@ -2,7 +2,7 @@ package com.example.belief.di.component;
 
 import com.example.belief.di.PerActivity;
 import com.example.belief.di.module.ActivityModule;
-import com.example.belief.ui.login.LoginActivity;
+//import com.example.belief.ui.login.LoginActivity;
 
 import dagger.Component;
 
@@ -44,6 +44,6 @@ public interface ActivityComponent {
     injected Type(MainActivity)需要让injector了解其具体类型，而不是通过接口，这违反了DI的原则
     查看官方文档进行优化
      */
-    void inject(LoginActivity mainActivity);
+//    void inject(LoginActivity mainActivity);
 
 }
