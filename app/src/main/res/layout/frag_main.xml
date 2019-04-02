@@ -9,7 +9,7 @@
     tools:context=".ui.MainActivity"
     android:background="@color/bg_white">
 
-    <!--<include layout="@layout/top_toolbar"/>-->
+    <include layout="@layout/top_toolbar"/>
 
     <!--<android.support.v4.view.ViewPager-->
         <!--android:id="@+id/view_page"-->
