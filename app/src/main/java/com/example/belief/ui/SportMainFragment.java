@@ -2,14 +2,15 @@ package com.example.belief.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.belief.R;
 
-public class SportMainFragment extends Fragment {
+import me.yokeyword.fragmentation.SupportFragment;
+
+public class SportMainFragment extends SupportFragment {
     public static SportMainFragment newInstance(String name) {
         Bundle args = new Bundle();
         args.putString("name", name);

@@ -1,33 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.MainActivity"
-    android:background="@color/bg_white">
-
-    <!--<include layout="@layout/top_toolbar"/>-->
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_page"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <android.support.design.widget.BottomNavigationView
+    <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/buttom_nav_view"
-        android:theme="@style/AppTheme"
+        android:id="@+id/main_act"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorwhite"
-        app:itemTextColor="@color/color_bnv_selected_text"
-        app:itemIconTint="@color/color_bnv_selected_text"
-        app:menu="@menu/bottom_nav" />
+        android:layout_height="match_parent">
+    </FrameLayout>
 
-</LinearLayout>

@@ -2,7 +2,6 @@ package com.example.belief.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,9 @@ import android.widget.TextView;
 
 import com.example.belief.R;
 
-public class TestFragment extends Fragment {
+import me.yokeyword.fragmentation.SupportFragment;
+
+public class TestFragment extends SupportFragment {
     private TextView tv;
 
     //这里可以给Fragment传参数

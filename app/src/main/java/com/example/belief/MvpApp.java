@@ -7,6 +7,7 @@ import com.example.belief.data.DataManager;
 import com.example.belief.di.component.ApplicationComponent;
 import com.example.belief.di.component.DaggerApplicationComponent;
 import com.example.belief.di.module.ApplicationModule;
+import com.example.belief.utils.ToastUtils;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
@@ -41,6 +42,7 @@ public class MvpApp extends Application {
         Fragmentation.builder()
                 .stackViewMode(Fragmentation.BUBBLE)
                 .debug(BuildConfig.DEBUG).install();
+        ToastUtils.init(this);
 
     }
 
