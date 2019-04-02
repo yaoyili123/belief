@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/frag_sport"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
+    <include layout="@layout/home_1"></include>
+    <include layout="@layout/home_2"></include>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"></LinearLayout>
+    <include layout="@layout/home_3"></include>
+</LinearLayout>

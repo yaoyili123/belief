@@ -64,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
         vpa = new ViewPagerAdapter(getSupportFragmentManager());
         vp.setAdapter(vpa);
         List<Fragment> list = new ArrayList<>();
-        list.add(TestFragment.newInstance("运动"));
+        list.add(SportMainFragment.newInstance("运动"));
         list.add(TestFragment.newInstance("发现"));
         list.add(TestFragment.newInstance("社区"));
-        list.add(TestFragment.newInstance("用户"));
+        list.add(UserMainFragment.newInstance("用户"));
         vpa.setList(list);
     }
 

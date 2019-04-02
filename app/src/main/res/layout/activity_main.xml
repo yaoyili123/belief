@@ -10,13 +10,13 @@
     android:background="@color/bg_white">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/top_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colortop"
-        app:navigationIcon="@drawable/qmui_icon_topbar_back"
-        app:title="课程介绍"
-        app:titleTextColor="@color/colorwhite">
+    android:id="@+id/top_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colortop"
+    app:navigationIcon="@drawable/qmui_icon_topbar_back"
+    app:title="课程介绍"
+    app:titleTextColor="@color/colorwhite">
 
     </android.support.v7.widget.Toolbar>
 

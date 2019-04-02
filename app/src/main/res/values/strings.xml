@@ -9,4 +9,25 @@
     <string name="bottom_nav_recipe">发现</string>
     <string name="bottom_nav_comm">社区</string>
     <string name="bottom_nav_user">我</string>
+
+    <!--User-->
+    <string name="edit">点击编辑</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="data">我的数据</string>
+    <string name="course">我的课程</string>
+    <string name="diet">我的饮食</string>
+    <string name="total_movement">总运动（分钟）</string>
+    <string name="today_movement">今日运动（分钟）</string>
+    <string name="cumulative_consumption">累计消耗（千卡）</string>
+    <string name="person_information">个人资料</string>
+    <string name="save">保存</string>
+    <string name="change_avatar">头像</string>
+    <string name="nickname">昵称</string>
+    <string name="birthday">生日</string>
+    <string name="city">城市</string>
+    <string name="introduction">简介</string>
+    <string name="stable_food">主食</string>
+    <string name="breakfast">早餐</string>
+
 </resources>

@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <string name="f_size_h1">35sp</string>
+    <string name="f_size_h2">25sp</string>
+    <string name="f_size_h3">15sp</string>
+
 </resources>
