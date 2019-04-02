@@ -9,16 +9,7 @@
     tools:context=".ui.MainActivity"
     android:background="@color/bg_white">
 
-    <android.support.v7.widget.Toolbar
-    android:id="@+id/top_toolbar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colortop"
-    app:navigationIcon="@drawable/qmui_icon_topbar_back"
-    app:title="课程介绍"
-    app:titleTextColor="@color/colorwhite">
-
-    </android.support.v7.widget.Toolbar>
+    <!--<include layout="@layout/top_toolbar"/>-->
 
     <android.support.v4.view.ViewPager
         android:id="@+id/view_page"

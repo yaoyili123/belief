@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--复用TOOLBar-->
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/top_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colortop"
+    app:title="课程介绍"
+    app:titleTextColor="@color/colorwhite"
+    app:titleMarginStart="150dp">
+
+</android.support.v7.widget.Toolbar>

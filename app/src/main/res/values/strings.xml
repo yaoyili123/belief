@@ -10,6 +10,12 @@
     <string name="bottom_nav_comm">社区</string>
     <string name="bottom_nav_user">我</string>
 
+    <!--toolbar title-->
+    <string name="top_title_sport">课程推荐</string>
+    <string name="top_title_recipe">健康饮食</string>
+    <string name="top_title_comm">交流健身</string>
+    <string name="top_title_user">个人信息</string>
+
     <!--User-->
     <string name="edit">点击编辑</string>
     <string name="male">男</string>

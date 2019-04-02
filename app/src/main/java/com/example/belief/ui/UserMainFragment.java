@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.example.belief.R;
 
 public class UserMainFragment extends Fragment {
+
     public static UserMainFragment newInstance(String name) {
         Bundle args = new Bundle();
         args.putString("name", name);
@@ -29,4 +30,6 @@ public class UserMainFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
+
+    
 }

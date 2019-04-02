@@ -1,8 +1,8 @@
 package com.example.belief.ui.base;
 
-import android.support.v4.app.Fragment;
+import me.yokeyword.fragmentation.SupportFragment;
 
-public class BaseFragment extends Fragment implements MvpView {
+public class BaseFragment extends SupportFragment implements MvpView {
 
     @Override
     public void showLoading() {
