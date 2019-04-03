@@ -1,41 +1,41 @@
 package com.example.belief.ui;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.belief.R;
 import com.example.belief.ui.base.BaseActivity;
+import com.example.belief.ui.sport.SportMainFragment;
+import com.example.belief.ui.user.UserMainFragment;
 import com.example.belief.utils.BNVEffect;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.SupportFragment;
-import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
-import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 /*
-*作为整个APP的单活动多碎片模式的那个活动，任务包括加载MainFragment以及监听事件
+*APP的root活动，可以用来保存全局状态
 * */
 public class MainActivity extends BaseActivity {
 
     @BindView(R.id.top_toolbar)
     public Toolbar mTitle;
-
     @BindView(R.id.buttom_nav_view)
     public BottomNavigationView bnv;
-
     private MainActivity mActivity;
-
     private MenuItem mi;
-
+    private boolean isExit = false;
     private SupportFragment[] mFragments = new SupportFragment[4];
-
     private int prePos = 0;
 
     @Override
@@ -78,18 +78,6 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    @Override
-    public void onBackPressedSupport() {
-        // 对于 4个类别的主Fragment内的回退back逻辑,已经在其onBackPressedSupport里各自处理了
-        super.onBackPressedSupport();
-    }
-
-    @Override
-    public FragmentAnimator onCreateFragmentAnimator() {
-        // 设置横向(和安卓4.x动画相同)
-        return new DefaultHorizontalAnimator();
-    }
-
     //底部导航选中callback
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -127,4 +115,35 @@ public class MainActivity extends BaseActivity {
         }
     };
 
+    //按两次退出
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exit();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    Handler mHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            isExit = false;
+        }
+    };
+
+    private void exit() {
+        if (!isExit) {
+            isExit = true;
+            Toast.makeText(getApplicationContext(), "再按一次退出程序",
+                    Toast.LENGTH_SHORT).show();
+            // 利用handler延迟发送更改状态信息
+            mHandler.sendEmptyMessageDelayed(0, 2000);
+        } else {
+            finish();
+            System.exit(0);
+        }
+    }
 }

@@ -14,15 +14,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:background="@color/theme_color">
+            android:background="@color/theme_color_deep">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="50dp"
-                android:src="@drawable/drill" />
+                android:src="@drawable/sport_drill" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -33,17 +33,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="50dp"
-                    android:textColor="@color/colorwhite"
+                    android:textColor="@color/white"
                     android:text="人鱼线的pdd" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="15dp"
-                    android:textColor="@color/colorwhite"
+                    android:textColor="@color/white"
                     android:text="@string/male" />
             </LinearLayout>
 
@@ -51,7 +51,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
+                android:layout_marginLeft="80dp"
                 android:layout_marginTop="70dp"
                 android:background="@drawable/button_edge"
                 android:text="@string/edit"
@@ -77,7 +77,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:text="@string/data"
                     android:textSize="25sp" />
@@ -96,7 +96,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
                     android:orientation="vertical"
                     android:layout_weight="1"
                     >
@@ -157,7 +157,7 @@
             </LinearLayout>
 
         </LinearLayout>
-        <include layout="@layout/mine_class"/>
+        <include layout="@layout/user_part1"/>
 
     </LinearLayout>
 

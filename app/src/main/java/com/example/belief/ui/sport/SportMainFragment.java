@@ -1,16 +1,27 @@
-package com.example.belief.ui;
+package com.example.belief.ui.sport;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.belief.R;
+import com.example.belief.ui.base.BaseFragment;
 
-import me.yokeyword.fragmentation.SupportFragment;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class SportMainFragment extends SupportFragment {
+/*运动模块一级页面
+* */
+public class SportMainFragment extends BaseFragment {
+
+    @BindView(R.id.test)
+    TextView test;
+
     public static SportMainFragment newInstance(String name) {
         Bundle args = new Bundle();
         args.putString("name", name);
@@ -29,5 +40,18 @@ public class SportMainFragment extends SupportFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        unbinder = ButterKnife.bind(this, view);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    @OnClick(R.id.test)
+    public void lookClass(View v) {
+        Intent intent=new Intent(getContext(), ManageSportActivity.class);
+        getActivity().startActivity(intent);
     }
 }

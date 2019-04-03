@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme"
+    android:orientation="vertical">
+
+    <!--早餐-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:layout_marginStart="30dp"
+            android:text="@string/breakfast"/>
+
+        <View
+            android:layout_width="380dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center_horizontal"
+            android:tag="实线"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/line_solid" />
+    </LinearLayout>
+
+    <include layout="@layout/stablefood"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_heart"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="656Kcal"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="130dp"
+            android:text="@string/check_in"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/tiao"/>
+
+    <!--中餐-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:layout_marginStart="30dp"
+            android:text="@string/lunch"/>
+
+        <View
+            android:layout_width="380dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center_horizontal"
+            android:tag="实线"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/line_solid" />
+    </LinearLayout>
+
+    <include layout="@layout/stablefood"/>
+
+    <!--按钮-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_heart"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="656Kcal"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="130dp"
+            android:text="@string/check_in"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/tiao"/>
+
+    <!--晚餐-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:layout_marginStart="30dp"
+            android:text="@string/dinner"/>
+
+        <View
+            android:layout_width="380dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center_horizontal"
+            android:tag="实线"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/line_solid" />
+    </LinearLayout>
+
+    <include layout="@layout/stablefood" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_heart"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="656Kcal"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="130dp"
+            android:text="@string/check_in"/>
+    </LinearLayout>
+
+</LinearLayout>

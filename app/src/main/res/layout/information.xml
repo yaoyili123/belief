@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:gravity="center_horizontal">
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/shape_textview_cart"
+        android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="360dp"
+                android:layout_height="150dp"
+                android:background="@color/icon_gray"/>
+
+
+            <LinearLayout
+                android:layout_width="360dp"
+                android:layout_height="100dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="教育部你筹建6000篇论文，有些人不淡定了"/>
+
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:background="@color/icon_gray"
+
+                    android:layout_marginStart="25dp"/>
+            </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

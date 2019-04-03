@@ -1,4 +1,4 @@
-package com.example.belief.ui;
+package com.example.belief.ui.user;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +10,8 @@ import com.example.belief.R;
 
 import me.yokeyword.fragmentation.SupportFragment;
 
+/*用户模块一级页面
+ * */
 public class UserMainFragment extends SupportFragment {
 
     public static UserMainFragment newInstance(String name) {

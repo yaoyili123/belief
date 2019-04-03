@@ -15,6 +15,13 @@
     <string name="top_title_recipe">健康饮食</string>
     <string name="top_title_comm">交流健身</string>
     <string name="top_title_user">个人信息</string>
+    <string name="top_tile_class_list">我的课程</string>
+
+    <!--LabLayout class list-->
+    <string name="tab_allclass">全部</string>
+    <string name="tab_done">已完成</string>
+    <string name="tab_doing">进行中</string>
+
 
     <!--User-->
     <string name="edit">点击编辑</string>
@@ -33,7 +40,25 @@
     <string name="birthday">生日</string>
     <string name="city">城市</string>
     <string name="introduction">简介</string>
+
+    <!--recipe-->
     <string name="stable_food">主食</string>
     <string name="breakfast">早餐</string>
+    <string name="food_name">豆汁</string>
+    <string name="food_element">含有少量蛋白，淀粉，矿物质</string>
+    <string name="food_heat">热量</string>
+    <string name="menu_kind">场景</string>
+    <string name="health_foodname">鲜果牛奶果酸乳</string>
+    <string name="health_likenum">8491</string>
+    <string name="total_heart">总热量</string>
+    <string name="check_in">打卡</string>
+    <string name="lunch">中餐</string>
+    <string name="dinner">晚餐</string>
+    <string name="diet_guide">饮食指南</string>
+    <string name="classified_recipe">分类菜谱</string>
+    <string name="food_library">食物库</string>
 
+    <!--社区-->
+    <string name="everyone_wactching">大家都在看</string>
+    <string name="dynamic_details">动态详情</string>
 </resources>
