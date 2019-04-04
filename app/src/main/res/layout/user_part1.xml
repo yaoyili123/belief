@@ -6,6 +6,8 @@
     android:orientation="vertical"
     android:background="@color/white">
 
+    <!--我的课程-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -36,6 +38,8 @@
         android:tag="实线"
         android:layout_marginTop="10dp"
         android:background="@color/font_gray" />
+
+    <!--我的饮食-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,6 +72,37 @@
         android:layout_marginTop="10dp"
         android:background="@color/font_gray" />
 
+    <!--我的收藏-->
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/favorite"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:src="@drawable/ic_right_b" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:tag="实线"
+        android:layout_marginTop="10dp"
+        android:background="@color/font_gray" />
 
 </LinearLayout>

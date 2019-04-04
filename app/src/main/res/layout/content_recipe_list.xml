@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/menukind_tv_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu_kind"
-            android:textSize="30sp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"></TextView>
+            android:layout_marginTop="30dp"
+            android:text="@string/menu_kind"
+            android:textSize="30sp"></TextView>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/menukind_tv_1"
             android:layout_marginTop="30dp">
+
             <ImageView
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/recipe_bf"
-                android:layout_marginLeft="20dp"></ImageView>
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/recipe_bf"></ImageView>
 
             <ImageView
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/recipe_bf"
-                android:layout_marginRight="20dp"></ImageView>
+                android:layout_marginRight="20dp"
+                android:background="@drawable/recipe_bf"></ImageView>
 
         </RelativeLayout>
     </RelativeLayout>

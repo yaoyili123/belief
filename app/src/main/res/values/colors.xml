@@ -6,6 +6,7 @@
     <color name="icon_gray">#AAAAAA</color>
     <color name="icon_black">#101010</color>
     <color name="bg_white">#F9F9F9</color>
+    <color name="bg_color">#F4F4F4</color>
     <color name="theme_color_deep">#4DB6AC</color>
     <color name="white">#FFFFFF</color>
     <color name="theme_color_shallow">#54D0C4</color>
