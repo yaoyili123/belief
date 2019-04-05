@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="250dp"
         android:background="@drawable/btn_normal_white">
         <TextView
             android:layout_width="wrap_content"
@@ -25,6 +25,13 @@
             android:layout_marginTop="20dp">
 
         </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@id/test"
+            android:background="@drawable/sport_drill"
+            android:layout_marginBottom="20dp"></TextView>
         <TextView
             android:id="@+id/test"
             android:layout_width="wrap_content"
