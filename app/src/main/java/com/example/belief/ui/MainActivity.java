@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.belief.R;
 import com.example.belief.ui.base.BaseActivity;
+import com.example.belief.ui.comm.CommMainFragment;
+import com.example.belief.ui.recipe.RecipeMainFragment;
 import com.example.belief.ui.sport.SportMainFragment;
 import com.example.belief.ui.user.UserMainFragment;
 import com.example.belief.utils.BNVEffect;
@@ -32,7 +34,6 @@ public class MainActivity extends BaseActivity {
     public Toolbar mTitle;
     @BindView(R.id.buttom_nav_view)
     public BottomNavigationView bnv;
-    private MainActivity mActivity;
     private MenuItem mi;
     private boolean isExit = false;
     private SupportFragment[] mFragments = new SupportFragment[4];
@@ -43,17 +44,18 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.frag_main);
         ButterKnife.bind(this);
-        setSupportActionBar(mTitle);
+//        setSupportActionBar(mTitle);
         BNVEffect.disableShiftMode(bnv);
         bnv.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         SupportFragment firstFragment = findFragment(SportMainFragment.class);
         if (firstFragment == null) {
             mFragments[0] = SportMainFragment.newInstance("运动");
-            mFragments[1] = TestFragment.newInstance("1");
-            mFragments[2] = TestFragment.newInstance("2");
+            mFragments[1] = RecipeMainFragment.newInstance();
+            mFragments[2] = CommMainFragment.newInstance();
             mFragments[3] = UserMainFragment.newInstance("用户");
 
+            //此处就会调用Fragment的各种初始化callback
             loadMultipleRootFragment(R.id.blank_frag, 0,
                     mFragments[0],
                     mFragments[1],
@@ -64,8 +66,8 @@ public class MainActivity extends BaseActivity {
 
             // 这里我们需要拿到mFragments的引用
             mFragments[0] = firstFragment;
-            mFragments[1] = findFragment(TestFragment.class);
-            mFragments[2] = findFragment(TestFragment.class);
+            mFragments[1] = findFragment(RecipeMainFragment.class);
+            mFragments[2] = findFragment(CommMainFragment.class);
             mFragments[3] = findFragment(UserMainFragment.class);
         }
     }
