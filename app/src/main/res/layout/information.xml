@@ -32,7 +32,7 @@
                 <TextView
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
                     android:text="教育部你筹建6000篇论文，有些人不淡定了"/>
 
 
@@ -41,7 +41,7 @@
                     android:layout_height="60dp"
                     android:background="@color/icon_gray"
 
-                    android:layout_marginStart="25dp"/>
+                    android:layout_marginLeft="25dp"/>
             </LinearLayout>
 
     </LinearLayout>

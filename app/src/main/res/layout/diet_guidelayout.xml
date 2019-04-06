@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:textSize="23sp"
             android:textStyle="bold"
-            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
             android:text="@string/breakfast"/>
 
         <View
@@ -41,19 +41,19 @@
             android:layout_height="wrap_content"
             android:text="@string/total_heart"
             android:textStyle="bold"
-            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
             android:text="656Kcal"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="130dp"
+            android:layout_marginLeft="130dp"
             android:text="@string/check_in"/>
     </LinearLayout>
 
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:textSize="23sp"
             android:textStyle="bold"
-            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
             android:text="@string/lunch"/>
 
         <View
@@ -99,19 +99,19 @@
             android:layout_height="wrap_content"
             android:text="@string/total_heart"
             android:textStyle="bold"
-            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
             android:text="656Kcal"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="130dp"
+            android:layout_marginLeft="130dp"
             android:text="@string/check_in"/>
     </LinearLayout>
 
@@ -132,7 +132,7 @@
             android:layout_height="wrap_content"
             android:textSize="23sp"
             android:textStyle="bold"
-            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
             android:text="@string/dinner"/>
 
         <View
@@ -156,19 +156,19 @@
             android:layout_height="wrap_content"
             android:text="@string/total_heart"
             android:textStyle="bold"
-            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
             android:text="656Kcal"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="130dp"
+            android:layout_marginLeft="130dp"
             android:text="@string/check_in"/>
     </LinearLayout>
 

@@ -1,170 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_color"
 
-    <RelativeLayout
-        android:id="@+id/Relat1"
+    >
+
+    <!--零基础适应性训练-->
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:layout_marginLeft="55dp"
-            android:scaleX="1.35"
-            android:background="@drawable/sport_drill"
-            android:scaleType="matrix"
-            android:alpha="0.88">
-        </ImageView>
+        android:layout_height="240dp"
+        android:background="@drawable/sport_drill">
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            app:srcCompat="@drawable/ic_share"></ImageView>
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/ic_back_w"></ImageView>
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="零基础适应性训练"
-            android:textColor="@color/white"
-            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
             android:textSize="30sp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="10dp"
-            android:alpha="0.84"></TextView>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@+id/Relat1"
-        android:background="@color/white"
-        android:id="@+id/Relat2">
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="燃脂"
-            android:textSize="18sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="60dp"></TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="时常"
-            android:textSize="18sp"
-            android:layout_toRightOf="@+id/text1"
-            android:layout_alignTop="@+id/text1"
-            android:layout_marginLeft="100dp"></TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/text1"
-            android:layout_alignTop="@+id/text1"
-            android:layout_marginLeft="220dp"
-            android:textSize="18sp"
-            android:text="难度"></TextView>
-
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="37"
-            android:textSize="28sp"
-            android:layout_alignParentBottom="true"
+            android:textColor="@color/white"
+            android:layout_marginLeft="20dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="60dp"></TextView>
+            android:text="零基础适应性训练" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/text2"
-            android:layout_alignBottom="@+id/text2"
-            android:textSize="15sp"
-            android:layout_marginLeft="10dp"
-            android:text="千卡"></TextView>
+    </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/text2"
-            android:layout_alignTop="@+id/text2"
-            android:textSize="28sp"
-            android:layout_marginLeft="95dp"
-            android:text="14"></TextView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/text2"
-            android:layout_alignBottom="@+id/text2"
-            android:textSize="15sp"
-            android:layout_marginLeft="140dp"
-            android:text="分钟"></TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/text2"
-            android:layout_alignTop="@+id/text2"
-            android:textSize="28sp"
-            android:layout_marginLeft="220dp"
-            android:text="1"></TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/text2"
-            android:layout_alignBottom="@+id/text2"
-            android:textSize="15sp"
-            android:layout_marginLeft="240dp"
-            android:text="leval"></TextView>
-    </RelativeLayout>
-
-    <RelativeLayout
+    <!--染指 时常 难度-->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@+id/Relat2"
+        android:layout_height="80dp"
         android:background="@color/white"
-        android:layout_marginTop="20dp">
+        android:orientation="horizontal">
 
-        <TextView
+        <!--燃脂-->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="无器械"
-            android:layout_centerInParent="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="30dp"></TextView>
-    </RelativeLayout>
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/theme_color_shallow">
             <TextView
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="开始训练"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                android:layout_centerInParent="true">
-            </TextView>
-    </RelativeLayout>
-</RelativeLayout>
+                android:layout_marginTop="10dp"
+                android:text="@string/fat_burning"
+                android:textSize="@dimen/qmui_btn_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:text="37千卡" />
+
+        </LinearLayout>
+
+        <!--时常-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/often"
+                android:textSize="@dimen/qmui_btn_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:text="14分钟" />
+
+        </LinearLayout>
+
+        <!--难度-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/difficult"
+                android:textSize="@dimen/qmui_btn_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:text="1leval" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/font_gray"
+        android:layout_marginTop="20dp"
+        android:tag="实线" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:textSize="15sp"
+            android:text="@string/no_apparatus"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/font_gray"
+        android:tag="实线" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="bottom">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/theme_color_deep"
+            android:text="开始训练"
+            android:textColor="@color/white"
+            android:focusable="false"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -17,6 +17,7 @@
     <string name="top_title_user">个人信息</string>
     <string name="top_tile_class_list">我的课程</string>
 
+
     <!--LabLayout class list-->
     <string name="tab_allclass">全部</string>
     <string name="tab_done">已完成</string>
@@ -29,6 +30,7 @@
     <string name="female">女</string>
     <string name="data">我的数据</string>
     <string name="course">我的课程</string>
+    <string name="favorite">我的收藏</string>
     <string name="diet">我的饮食</string>
     <string name="total_movement">总运动（分钟）</string>
     <string name="today_movement">今日运动（分钟）</string>
@@ -58,9 +60,21 @@
     <string name="classified_recipe">分类菜谱</string>
     <string name="food_library">食物库</string>
 
+
+    <!--零基础适应性训练-->
+    <string name="fat_burning">燃脂</string>
+    <string name="often">时常</string>
+    <string name="difficult">难度</string>
+    <string name="no_apparatus">无器械</string>
+
+
     <!--社区-->
     <string name="everyone_wactching">大家都在看</string>
     <string name="dynamic_details">动态详情</string>
     <string name="com_name">跟李老师一起爱上开发</string>
     <string name="com_name1">李晓蕾</string>
+    
+    <!--运动-->
+    <string name="add_class">+添加课程</string>
+    
 </resources>
