@@ -37,7 +37,6 @@ public class UserMainFragment extends SupportFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         ToastUtils.showToast("call userMainFragment onCreateView");
         View view = inflater.inflate(R.layout.farg_user_main, container, false);
-        mainActivity.disableToolBar();
         return view;
     }
 
@@ -50,6 +49,5 @@ public class UserMainFragment extends SupportFragment {
     public void onDestroyView() {
         ToastUtils.showToast("call userMainFragment onDestroyView");
         super.onDestroyView();
-        mainActivity.showToolBar();
     }
 }
