@@ -35,6 +35,8 @@ import dagger.Component;
 
 dependencies含义，使得每一个ApplicationComponent中的provision method成为一个provider，无视scope
 */
+
+//FIXME：我猜啊，dependencies的作用就是将provider与特定scope联系起来，想要提供PerActivity域的Application中的组件给V层组件使用
 @PerActivity
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {

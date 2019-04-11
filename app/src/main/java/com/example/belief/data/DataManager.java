@@ -1,42 +1,38 @@
 package com.example.belief.data;
 
 import android.content.Context;
-import android.content.res.Resources;
 
+import com.example.belief.data.db.DbHelper;
 import com.example.belief.di.ApplicationContext;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
+import io.reactivex.Observable;
+
+/*
+* 作为所有数据访问代码的proxy接口，由P层调用
+* M层代码总接口
+* */
 
 @Singleton
 public class DataManager {
 
     private Context mContext;
     private DbHelper mDbHelper;
-    private SharedPrefsHelper mSharedPrefsHelper;
 
     @Inject
     public DataManager(@ApplicationContext Context context,
-                       DbHelper dbHelper,
-                       SharedPrefsHelper sharedPrefsHelper) {
+                       DbHelper dbHelper) {
         mContext = context;
         mDbHelper = dbHelper;
-        mSharedPrefsHelper = sharedPrefsHelper;
     }
 
-    public void saveAccessToken(String accessToken) {
-        mSharedPrefsHelper.put(SharedPrefsHelper.PREF_KEY_ACCESS_TOKEN, accessToken);
+    public <T> Observable<Object> getAllClientData(Class<T> type) {
+        return mDbHelper.getAllData(type);
     }
 
-    public String getAccessToken(){
-        return mSharedPrefsHelper.get(SharedPrefsHelper.PREF_KEY_ACCESS_TOKEN, null);
-    }
-
-    public Long createUser(User user) throws Exception {
-        return mDbHelper.insertUser(user);
-    }
-
-    public User getUser(Long userId) throws Resources.NotFoundException, NullPointerException {
-        return mDbHelper.getUser(userId);
+    public <T> Observable<Object> getClientDataById(Class<T> type, Long id) {
+        return mDbHelper.getDataById(type, id);
     }
 }

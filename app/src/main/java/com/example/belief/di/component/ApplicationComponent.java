@@ -5,8 +5,7 @@ import android.content.Context;
 
 import com.example.belief.MvpApp;
 import com.example.belief.data.DataManager;
-import com.example.belief.data.DbHelper;
-import com.example.belief.data.SharedPrefsHelper;
+import com.example.belief.data.db.DbHelper;
 import com.example.belief.di.ApplicationContext;
 import com.example.belief.di.module.ApplicationModule;
 
@@ -19,9 +18,11 @@ import dagger.Component;
 
 //所谓binding就是component和graph之间的一种关系，同时binding还可以设置scope
 
-//根据生成的代码，所有@Singleton的bean class（都提供了@Inject的constructor，因此可以作为Provider）
-// 都会在其生成的实现类中，以Provider的形式存在
-@Singleton
+/*根据生成的代码，所有@Singleton的bean class（都提供了@Inject的constructor，因此可以作为Provider）
+    都会在其生成的实现类中，以Provider的形式存在
+    Provider也是一种Fectory，由module中的provides标记的生成类提供
+*/
+@Singleton //其所有Bean都是单例
 
 //modules是一种声明binding的方法
 @Component(modules = ApplicationModule.class)
@@ -39,8 +40,5 @@ public interface ApplicationComponent {
 
     DataManager getDataManager();
 
-    SharedPrefsHelper getPreferenceHelper();
-
     DbHelper getDbHelper();
-
 }
