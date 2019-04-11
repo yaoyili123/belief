@@ -17,3 +17,5 @@ MvpApp.java  &nbsp;&nbsp;&nbsp;&nbsp;  //Android应用的全局Context，存放�
 3. ButterKnife，简化获取控件对象以及绑定UI事件的代码  
 4. GreenDao，用于简化SQlite DAO代码  
 5. fragmentation，用于更简单的管理Fragments的库  
+6. retrofit+okhttp（目前暂未使用），HTTP客户端，和REST后台接口进行通信，配合Rxjava简化代码
+7. gson（目前暂未使用），很好用的json解析器
