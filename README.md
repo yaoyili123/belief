@@ -12,7 +12,7 @@ MvpApp.java  &nbsp;&nbsp;&nbsp;&nbsp;  //Android应用的全局Context，存放�
 
 # 使用的第三方库
 1. Dagger2，依赖注入库  
-2. Rxjava，ReactiveX JVM实现，提供了异步流式处理，主要的作用是简化异步事件处理的代码，用于Model层里面的Http Client以及数据库查询逻辑（对数据进行流式处理）、
+2. Rxjava，ReactiveX JVM实现，提供了异步流式处理，主要的作用是简化异步事件处理的代码，用于Model层里面的Http客户端以及数据库查询逻辑（对数据进行流式处理）、
 以及Presenter层中在Callback（回调函数）中对UI线程中的UI进行更新（通过调用View层方法的方式）  
 3. ButterKnife，简化获取控件对象以及绑定UI事件的代码  
 4. GreenDao，用于简化SQlite DAO代码  
