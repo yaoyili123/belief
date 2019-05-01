@@ -20,3 +20,7 @@ MvpApp.java  &nbsp;&nbsp;&nbsp;&nbsp;  //Android应用的全局Context，存放�
 6. retrofit+okhttp（目前暂未使用），HTTP客户端，和REST后台接口进行通信，配合Rxjava简化代码，属于Model层
 7. gson（目前暂未使用），很好用的json解析器
 8. UI控件：ButtomNavigationView、CardView、ToolBar、ViewPager、TabLayout、CircleImageView
+
+# 其他工具
+1. stetho，facebook出品的devtools调试安卓程序
+2. postman， API测试工具
