@@ -20,7 +20,9 @@ import android.content.Context;
 
 import com.example.belief.data.db.AppDbHelper;
 import com.example.belief.data.db.DbHelper;
+import com.example.belief.data.network.ApiHelper;
 import com.example.belief.di.ApplicationContext;
+import com.example.belief.utils.RetrofitServiceManager;
 import com.example.belief.utils.rx.AppSchedulerProvider;
 import com.example.belief.utils.rx.SchedulerProvider;
 
@@ -69,4 +71,9 @@ public class ApplicationTestModule {
         return appDbHelper;
     }
 
+    @Provides
+    @Singleton
+    ApiHelper provideApiHelper() {
+        return RetrofitServiceManager.getInstance().create(ApiHelper.class);
+    }
 }

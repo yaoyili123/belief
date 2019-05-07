@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.belief.data.db.DbHelper;
 import com.example.belief.data.network.ApiHelper;
+import com.example.belief.data.network.model.ApiFault;
 import com.example.belief.data.network.model.RequestShare;
 import com.example.belief.data.network.model.ResponseWrapper;
 import com.example.belief.data.network.model.ShareInfo;
@@ -12,7 +13,6 @@ import com.example.belief.data.network.model.UserInfo;
 import com.example.belief.data.network.model.UserKcalTrend;
 import com.example.belief.data.network.model.UserSportInfo;
 import com.example.belief.di.ApplicationContext;
-import com.example.belief.utils.RetrofitServiceManager;
 
 import java.util.List;
 import java.util.Map;
@@ -36,17 +36,18 @@ public class DataManager {
 
     @Inject
     public DataManager(@ApplicationContext Context context,
-                       DbHelper dbHelper) {
+                       DbHelper dbHelper,
+                       ApiHelper apiHelper) {
         mContext = context;
         mDbHelper = dbHelper;
-        mApiHelper = RetrofitServiceManager.getInstance().create(ApiHelper.class);
+        mApiHelper = apiHelper;
     }
 
     //取出网络请求中的data，若出错则抛出异常由Subscriber处理
     public <T> Observable<T> payLoad(Observable<ResponseWrapper<T>> observable) {
         return observable.map((ResponseWrapper<T> response) -> {
             if (!response.isSuccess())
-                throw new RuntimeException(response.getMessage());
+                throw new ApiFault(response.getStatus(), response.getMessage());
             return response.getData();
         });
     }

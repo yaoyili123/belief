@@ -7,6 +7,7 @@ import com.example.belief.data.db.model.DaoSession;
 import com.example.belief.data.db.model.Food;
 import com.example.belief.data.db.model.Recipe;
 import com.example.belief.data.db.model.SportClass;
+import com.example.belief.data.network.model.ApiFault;
 import com.example.belief.utils.rx.SchedulerProvider;
 
 import java.util.List;
@@ -79,8 +80,18 @@ public class MockPresenter {
                     for (int i = 0; i < tmp.size(); i++) {
                         Log.d("getAllData", tmp.get(i).toString());
                     }
-                }, (t) -> {
-                    Log.e("getAllData","error: " + t.getMessage());
+                }, (throwable) -> {
+                    if(throwable instanceof ApiFault){
+                        ApiFault fault = (ApiFault) throwable;
+                        if(fault.getErrorCode() == 404){
+                            //错误处理
+                        }else if(fault.getErrorCode() == 500){
+                            //错误处理
+                        }else if(fault.getErrorCode() == 501){
+                            //错误处理
+                        }
+                    }
+                    Log.e("getAllData","error: " + throwable.getMessage());
                 }));
     }
 
