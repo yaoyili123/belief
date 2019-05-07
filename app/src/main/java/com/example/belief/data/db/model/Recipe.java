@@ -72,4 +72,15 @@ public class Recipe {
     public void setIngredient(String ingredient) {
         this.ingredient = ingredient;
     }
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "rid=" + rid +
+                ", tid=" + tid +
+                ", name='" + name + '\'' +
+                ", pid=" + pid +
+                ", ingredient='" + ingredient + '\'' +
+                '}';
+    }
 }

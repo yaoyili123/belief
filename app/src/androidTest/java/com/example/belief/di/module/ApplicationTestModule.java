@@ -68,4 +68,5 @@ public class ApplicationTestModule {
     DbHelper provideDbHelper(AppDbHelper appDbHelper) {
         return appDbHelper;
     }
+
 }

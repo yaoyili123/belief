@@ -16,6 +16,8 @@ public class AppDbHelper implements DbHelper {
 
     private final DaoSession mDaoSession;
 
+    private static final String packageName = "com.example.belief.data.db.model.";
+
     @Inject
     public AppDbHelper(@ApplicationContext Context context) {
         mDaoSession = ((MvpApp)context).getDaoSession();
@@ -30,13 +32,13 @@ public class AppDbHelper implements DbHelper {
     public <T> Observable<Object> getAllData (Class<T> type) {
         try {
             switch (type.getCanonicalName()) {
-                case "SportClass":
+                case packageName + "SportClass":
                     return Observable.fromCallable(() -> mDaoSession.getSportClassDao().loadAll());
-                case "RecipeType":
+                case packageName + "RecipeType":
                     return Observable.fromCallable(() -> mDaoSession.getRecipeTypeDao().loadAll());
-                case "Food":
+                case packageName + "Food":
                     return Observable.fromCallable(() -> mDaoSession.getFoodDao().loadAll());
-                case "Recipe":
+                case packageName + "Recipe":
                     return Observable.fromCallable(() -> mDaoSession.getRecipeDao().loadAll());
                 default:
                     throw new RuntimeException("getAllData Type Error");
@@ -53,13 +55,13 @@ public class AppDbHelper implements DbHelper {
 
         try {
             switch (type.getCanonicalName()) {
-                case "SportClass":
+                case packageName + "SportClass":
                     return Observable.fromCallable(() -> mDaoSession.getSportClassDao().loadByRowId(id));
-                case "RecipeType":
+                case packageName + "RecipeType":
                     return Observable.fromCallable(() -> mDaoSession.getRecipeTypeDao().loadByRowId(id));
-                case "Food":
+                case packageName + "Food":
                     return Observable.fromCallable(() -> mDaoSession.getFoodDao().loadByRowId(id));
-                case "Recipe":
+                case packageName + "Recipe":
                     return Observable.fromCallable(() -> mDaoSession.getRecipeDao().loadByRowId(id));
                 default:
                     throw new RuntimeException("getDataById Type Error");

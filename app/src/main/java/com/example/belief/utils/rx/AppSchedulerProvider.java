@@ -11,7 +11,7 @@ import io.reactivex.schedulers.Schedulers;
 public class AppSchedulerProvider implements SchedulerProvider {
 
     @Override
-    public Scheduler ui() {
+    public  Scheduler ui() {
         return AndroidSchedulers.mainThread();
     }
 
@@ -22,7 +22,7 @@ public class AppSchedulerProvider implements SchedulerProvider {
 
     @Override
     public Scheduler io() {
-        return Schedulers.io();
+        return Schedulers.trampoline();
     }
 
 }

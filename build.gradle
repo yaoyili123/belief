@@ -47,4 +47,6 @@ ext {
     espressoVersion = '2.2.2'
     mockitoVersion = '2.7.1'
     //app dependents
+
+    rx2FastAndroidNetworking = '1.0.1'
 }

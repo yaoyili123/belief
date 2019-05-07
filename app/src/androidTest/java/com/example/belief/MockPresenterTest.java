@@ -35,7 +35,7 @@ public class MockPresenterTest {
     @Before
     public void setUp() {
         component.getTestComponent().inject(this);
-        MockPresenter.mockInsert((MvpApp.get(component.getContext())).getDaoSession());
+//        MockPresenter.mockInsert((MvpApp.get(component.getContext())).getDaoSession());
     }
 
     @Test
@@ -44,5 +44,10 @@ public class MockPresenterTest {
         mPresenter.getAllData(Recipe.class);
         mPresenter.getAllData(RecipeType.class);
         mPresenter.getAllData(SportClass.class);
+    }
+
+    @Test
+    public void test1() {
+        mPresenter.getJoinedClasses(1);
     }
 }

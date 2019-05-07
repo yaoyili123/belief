@@ -1,5 +1,7 @@
 package com.example.belief;
 
+import android.util.Log;
+
 import com.example.belief.data.DataManager;
 import com.example.belief.data.db.model.DaoSession;
 import com.example.belief.data.db.model.Food;
@@ -14,7 +16,8 @@ import javax.inject.Inject;
 import io.reactivex.disposables.CompositeDisposable;
 
 /*
-* 假P层接口，用于测试M层接口
+* 假P层接口，用于测试M层接口，暂时不会放在源代码当中
+//* FIXME: 不再进行单元测试了
 * */
 public class MockPresenter {
 
@@ -22,6 +25,7 @@ public class MockPresenter {
 
     private final SchedulerProvider mSchedulerProvider;
 
+    //统一处理订阅，一个Observable管理器
     private final CompositeDisposable mCompositeDisposable;
 
     @Inject
@@ -46,6 +50,7 @@ public class MockPresenter {
     }
 
     public void onDetach() {
+        //防止UI销毁导致的内存泄漏
         mCompositeDisposable.dispose();
     }
 
@@ -66,14 +71,34 @@ public class MockPresenter {
 
     public <T> void getAllData(Class<T> type) {
 
-        getCompositeDisposable().add(getDataManager()
-                .getAllClientData(type)
+        getCompositeDisposable().add(getDataManager().getAllClientData(type)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe((Object list) -> {
                     List<T> tmp = (List<T>) list;
-                    System.out.print("getAllData() result: " + tmp.size());
+                    for (int i = 0; i < tmp.size(); i++) {
+                        Log.d("getAllData", tmp.get(i).toString());
+                    }
+                }, (t) -> {
+                    Log.e("getAllData","error: " + t.getMessage());
                 }));
     }
-    
+
+    public void getJoinedClasses(int uid) {
+        getCompositeDisposable().add(getDataManager().getJoinedClasses(uid)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe((List<Integer> list) -> {
+                    String log = "Uid : " + uid + "JoinedClass: ";
+                    for (int cid : list) {
+                        log += cid;
+                    }
+                    Log.d("getJoinedClasses", log);
+                }, (t) -> {
+                    Log.e("getJoinedClasses","error: "
+                            + t.getMessage());
+                }));
+    }
+
+
 }

@@ -6,6 +6,7 @@ import android.content.Context;
 import com.example.belief.MvpApp;
 import com.example.belief.data.DataManager;
 import com.example.belief.data.db.DbHelper;
+import com.example.belief.data.network.ApiHelper;
 import com.example.belief.di.ApplicationContext;
 import com.example.belief.di.module.ApplicationModule;
 
@@ -41,4 +42,6 @@ public interface ApplicationComponent {
     DataManager getDataManager();
 
     DbHelper getDbHelper();
+
+    ApiHelper getApiHelper();
 }

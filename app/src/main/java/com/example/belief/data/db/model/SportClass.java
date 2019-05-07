@@ -106,4 +106,18 @@ public class SportClass {
     public void setDetail(String detail) {
         this.detail = detail;
     }
+
+    @Override
+    public String toString() {
+        return "SportClass{" +
+                "scid=" + scid +
+                ", name='" + name + '\'' +
+                ", time=" + time +
+                ", kcal=" + kcal +
+                ", level=" + level +
+                ", type=" + type +
+                ", videoUrl='" + videoUrl + '\'' +
+                ", detail='" + detail + '\'' +
+                '}';
+    }
 }

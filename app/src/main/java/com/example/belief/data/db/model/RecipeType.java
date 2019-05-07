@@ -50,4 +50,13 @@ public class RecipeType {
     public void setPid(Long pid) {
         this.pid = pid;
     }
+
+    @Override
+    public String toString() {
+        return "RecipeType{" +
+                "tid=" + tid +
+                ", name='" + name + '\'' +
+                ", pid=" + pid +
+                '}';
+    }
 }
