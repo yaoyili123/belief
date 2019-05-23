@@ -3,8 +3,6 @@ package com.example.belief.di.module;
 import android.app.Application;
 import android.content.Context;
 
-import com.example.belief.data.db.AppDbHelper;
-import com.example.belief.data.db.DbHelper;
 import com.example.belief.data.network.ApiHelper;
 import com.example.belief.di.ApplicationContext;
 import com.example.belief.utils.RetrofitServiceManager;
@@ -41,13 +39,6 @@ public class ApplicationModule {
     Application provideApplication() {
         return mApplication;
     }
-
-    @Provides
-    @Singleton
-    DbHelper provideDbHelper(AppDbHelper appDbHelper) {
-        return appDbHelper;
-    }
-
 
     @Provides
     @Singleton

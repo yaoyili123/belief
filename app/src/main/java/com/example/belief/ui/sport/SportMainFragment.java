@@ -36,13 +36,12 @@ public class SportMainFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        unbinder = ButterKnife.bind(this, view);
+        setUnbinder(ButterKnife.bind(this, view));
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
+    protected void setUp(View view) {
+
     }
 
 //    @OnClick(R.id.test)

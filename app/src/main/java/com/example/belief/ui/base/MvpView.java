@@ -7,4 +7,14 @@ public interface MvpView {
     void showLoading();
 
     void hideLoading();
+
+    void onError(String message);
+
+    void showMessage(String message);
+
+    void toLogin();
+
+    void hideKeyboard();
+
+    void handleApiError(Throwable error);
 }

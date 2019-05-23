@@ -7,10 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.belief.R;
+import com.example.belief.ui.base.BaseFragment;
 
-import me.yokeyword.fragmentation.SupportFragment;
-
-public class RecipeMainFragment extends SupportFragment {
+public class RecipeMainFragment extends BaseFragment {
 
     public static RecipeMainFragment newInstance() {
         Bundle args = new Bundle();
@@ -24,5 +23,10 @@ public class RecipeMainFragment extends SupportFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.searchlayout, container, false);
         return view;
+    }
+
+    @Override
+    protected void setUp(View view) {
+
     }
 }

@@ -22,7 +22,7 @@ public class AppSchedulerProvider implements SchedulerProvider {
 
     @Override
     public Scheduler io() {
-        return Schedulers.trampoline();
+        return Schedulers.io();
     }
 
 }

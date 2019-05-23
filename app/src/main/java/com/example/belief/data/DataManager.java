@@ -2,12 +2,15 @@ package com.example.belief.data;
 
 import android.content.Context;
 
-import com.example.belief.data.db.DbHelper;
 import com.example.belief.data.network.ApiHelper;
 import com.example.belief.data.network.model.ApiFault;
+import com.example.belief.data.network.model.Food;
+import com.example.belief.data.network.model.Recipe;
+import com.example.belief.data.network.model.RecipeType;
 import com.example.belief.data.network.model.RequestShare;
 import com.example.belief.data.network.model.ResponseWrapper;
 import com.example.belief.data.network.model.ShareInfo;
+import com.example.belief.data.network.model.SportClass;
 import com.example.belief.data.network.model.UserAuth;
 import com.example.belief.data.network.model.UserInfo;
 import com.example.belief.data.network.model.UserKcalTrend;
@@ -21,6 +24,8 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Observable;
+import io.reactivex.Single;
+import retrofit2.http.Path;
 
 /*
 * 作为所有数据访问代码的proxy接口，由P层调用
@@ -31,15 +36,12 @@ import io.reactivex.Observable;
 public class DataManager {
 
     private Context mContext;
-    private DbHelper mDbHelper;
     private ApiHelper mApiHelper;
 
     @Inject
     public DataManager(@ApplicationContext Context context,
-                       DbHelper dbHelper,
                        ApiHelper apiHelper) {
         mContext = context;
-        mDbHelper = dbHelper;
         mApiHelper = apiHelper;
     }
 
@@ -52,15 +54,16 @@ public class DataManager {
         });
     }
 
-    public <T> Observable<Object> getAllClientData(Class<T> type) {
-        return mDbHelper.getAllData(type);
+    //取出网络请求中的data，若出错则抛出异常由Subscriber处理
+    public <T> Single<T> payLoad(Single<ResponseWrapper<T>> observable) {
+        return observable.map((ResponseWrapper<T> response) -> {
+            if (!response.isSuccess())
+                throw new ApiFault(response.getStatus(), response.getMessage());
+            return response.getData();
+        });
     }
 
-    public <T> Observable<Object> getClientDataById(Class<T> type, Long id) {
-        return mDbHelper.getDataById(type, id);
-    }
-
-    public Observable<List<Integer>> getJoinedClasses(int uid) {
+    public Observable<List<SportClass>> getJoinedClasses(int uid) {
         return payLoad(mApiHelper.getJoinedClasses(uid));
     }
 
@@ -68,60 +71,76 @@ public class DataManager {
         return payLoad(mApiHelper.getTotalKcal(uid));
     }
 
-    Observable<Map> addClassToUser(int uid, List<Integer> classList) {
+    public Single<Map> addClassToUser(int uid, List<Integer> classList) {
         return payLoad(mApiHelper.addClassToUser(uid, classList));
     }
 
-    Observable<Map> settleKcal( int uid, int kcal, int time){
+    public Single<Map> settleKcal( int uid, int kcal, int time){
         return payLoad(mApiHelper.settleKcal(uid, kcal, time));
     }
 
-    Observable<Map> register(UserAuth userAuth){
+    public Single<Map<String, Object>> register(UserAuth userAuth){
 
         return payLoad(mApiHelper.register(userAuth));
     }
 
-    Observable<List<UserSportInfo>> getSportInfo(int uid){
+    public Single<Map<String, Object>> login(UserAuth userAuth){
+
+        return payLoad(mApiHelper.login(userAuth));
+    }
+
+    public Observable<List<UserSportInfo>> getSportInfo(int uid){
 
         return payLoad(mApiHelper.getSportInfo(uid));
     }
 
-    Observable<Map> updateUserInfo(UserInfo userInfo){
+    public Single<Map> updateUserInfo(UserInfo userInfo){
 
         return payLoad(mApiHelper.updateUserInfo(userInfo));
     }
 
-    Observable<UserInfo> getUserInfo(Integer uid){
+    public Observable<UserInfo> getUserInfo(Integer uid){
 
         return payLoad(mApiHelper.getUserInfo(uid));
     }
 
-    Observable<List<UserKcalTrend>> getKcalTrand(int uid, int type){
+    public Observable<List<UserKcalTrend>> getKcalTrand(int uid, int type){
         return payLoad(mApiHelper.getKcalTrand(uid, type));
     }
 
-    Observable<List<ShareInfo>> getShareList(){
+    public Observable<List<ShareInfo>> getShareList(){
 
         return payLoad(mApiHelper.getShareList());
     }
 
-    Observable<Map> publishShare(RequestShare share){
+    public Single<Map> publishShare(RequestShare share){
 
         return payLoad(mApiHelper.publishShare(share));
     }
 
-    Observable<List<Integer>> getRecipes(int uid){
+    public Observable<List<Recipe>> getRecipesByUser(int uid){
 
-        return payLoad(mApiHelper.getRecipes(uid));
+        return payLoad(mApiHelper.getRecipesByUser(uid));
     }
 
-    Observable<Map> addRecipe(int uid, int rid){
+    public Single<Map> addRecipe(int uid, int rid){
 
         return payLoad(mApiHelper.addRecipe(uid, rid));
     }
-    
-    Observable<Map> deleteRecipe(int uid, int rid){
 
+    public Single<Map> deleteRecipe(int uid, int rid){
         return payLoad(mApiHelper.deleteRecipe(uid, rid));
+    }
+
+    public Observable<List<Food>> getFoods() {
+        return payLoad(mApiHelper.getFoods());
+    }
+
+    public Observable<List<RecipeType>> getRecipeType() {
+        return payLoad(mApiHelper.getRecipeType());
+    }
+
+    public Observable<List<Recipe>> getRecipesByType(@Path("tid")int tid) {
+        return payLoad(mApiHelper.getRecipesByType(tid));
     }
 }

@@ -27,16 +27,21 @@ public class ManageSportActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-        ButterKnife.bind(this);
-        mTitle.setTitle(R.string.top_tile_class_list);
-
-        mTab.addTab(mTab.newTab().setText(R.string.tab_allclass));
-        mTab.addTab(mTab.newTab().setText(R.string.tab_doing));
-        mTab.addTab(mTab.newTab().setText(R.string.tab_done));
+        setUnbinder(ButterKnife.bind(this));
+        setUp();
     }
 
     @OnClick(R.id.list_title)
     public void backHome() {
         this.finish();
+    }
+
+    @Override
+    protected void setUp() {
+        mTitle.setTitle(R.string.top_tile_class_list);
+
+        mTab.addTab(mTab.newTab().setText(R.string.tab_allclass));
+        mTab.addTab(mTab.newTab().setText(R.string.tab_doing));
+        mTab.addTab(mTab.newTab().setText(R.string.tab_done));
     }
 }

@@ -12,4 +12,5 @@
     <color name="theme_color_shallow">#54D0C4</color>
     <color name="font_gray">#cccccc</color>
     <color name="tiao">#EBF0F2</color>
+    <color name="black_effective">#2a2a2a</color>
 </resources>

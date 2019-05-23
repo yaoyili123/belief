@@ -4,11 +4,11 @@ import android.app.Application;
 import android.content.Context;
 
 import com.example.belief.data.DataManager;
-import com.example.belief.data.db.model.DaoMaster;
-import com.example.belief.data.db.model.DaoSession;
+import com.example.belief.data.network.model.UserAuth;
 import com.example.belief.di.component.ApplicationComponent;
 import com.example.belief.di.component.DaggerApplicationComponent;
 import com.example.belief.di.module.ApplicationModule;
+import com.example.belief.ui.base.MvpView;
 import com.example.belief.utils.ToastUtils;
 import com.facebook.stetho.Stetho;
 import com.orhanobut.logger.AndroidLogAdapter;
@@ -31,7 +31,7 @@ public class MvpApp extends Application {
     @Inject
     DataManager dataManager;
 
-    private DaoSession mDaoSession;
+    private UserAuth curUser;
 
     //DI连接器，用来对Application的成员进行注入
     private ApplicationComponent applicationComponent;
@@ -72,14 +72,20 @@ public class MvpApp extends Application {
         //初始化全局变量
         initConst();
 
-//        AndroidNetworking.initialize(getApplicationContext());
-
-        mDaoSession = new DaoMaster(
-                new DaoMaster.DevOpenHelper(this, "belief.db").getWritableDb()).newSession();
     }
 
-    public DaoSession getDaoSession() {
-        return mDaoSession;
+    //是否登陆，没有就跳转
+    public void checkLogined(MvpView context) {
+        if (curUser == null)
+        context.toLogin();
+    }
+
+    public UserAuth getCurUser() {
+        return curUser;
+    }
+
+    public void setCurUser(UserAuth curUser) {
+        this.curUser = curUser;
     }
 
     public ApplicationComponent getComponent(){
@@ -89,34 +95,6 @@ public class MvpApp extends Application {
     public void setComponent(ApplicationComponent ac) {
         applicationComponent = ac;
     }
-
-//    private void updateDbByScript() {
-//
-//        //每次使用时，version加一即可
-//        SQLiteDatabase db = new FileHelper(this, "belief.db", 7)
-//                .getWritableDatabase();
-//
-//        try {
-//            InputStream in = getAssets().open("belief-client.sql");
-//            String sqlUpdate = null;
-//            try {
-//                sqlUpdate = FileUtils.readTextFromSDcard(in);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//            String[] s = sqlUpdate.split(";");
-//            for (int i = 0; i < s.length; i++) {
-//                if (!TextUtils.isEmpty(s[i])) {
-//                    db.execSQL(s[i]);
-//                }
-//            }
-//            in.close();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     private void initConst() {
         classType = new HashMap<>();
@@ -131,23 +109,3 @@ public class MvpApp extends Application {
         classType.put((long)2, "上肢");
     }
 }
-
-////用于使用SQL脚本对数据库进行更新
-//class FileHelper extends SQLiteOpenHelper {
-//
-//    public FileHelper(Context context,
-//                    String dbName,
-//                    Integer version) {
-//        super(context, dbName, null, version);
-//    }
-//
-//    @Override
-//    public void onCreate(SQLiteDatabase sqLiteDatabase) {
-//
-//    }
-//
-//    @Override
-//    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-//
-//    }
-//}

@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -75,19 +74,10 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
 
-    //data persiset
-    implementation 'org.greenrobot:greendao:3.2.2'
-
     //http client
 //    implementation "com.amitshekhar.android:rx2-android-networking:$rootProject.rx2FastAndroidNetworking"
     implementation 'com.squareup.okhttp3:okhttp:3.8.1'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-}
-
-greendao {
-    //升级数据库时，只需要改动下这个版本号，然后再实现onUpgrade方法即可
-    //如果没有，Helper默认是版本1
-    schemaVersion 8
 }

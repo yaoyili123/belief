@@ -5,6 +5,9 @@ import android.content.Context;
 
 import com.example.belief.MockPresenter;
 import com.example.belief.di.ActivityContext;
+import com.example.belief.ui.user.UserMvpPresenter;
+import com.example.belief.ui.user.UserMvpView;
+import com.example.belief.ui.user.UserPresenter;
 import com.example.belief.utils.rx.AppSchedulerProvider;
 import com.example.belief.utils.rx.SchedulerProvider;
 
@@ -57,4 +60,9 @@ public class ActivityModule {
         return presenter;
     }
 
+    @Provides
+    UserMvpPresenter<UserMvpView>
+    privideUserPresenter(UserPresenter<UserMvpView> presenter) {
+        return presenter;
+    }
 }

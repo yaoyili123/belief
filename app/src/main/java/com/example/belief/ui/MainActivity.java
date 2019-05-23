@@ -1,5 +1,7 @@
 package com.example.belief.ui;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,6 +15,7 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.belief.MvpApp;
 import com.example.belief.R;
 import com.example.belief.ui.base.BaseActivity;
 import com.example.belief.ui.comm.CommMainFragment;
@@ -43,33 +46,8 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.frag_main);
-        ButterKnife.bind(this);
-//        setSupportActionBar(mTitle);
-        BNVEffect.disableShiftMode(bnv);
-        bnv.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        SupportFragment firstFragment = findFragment(SportMainFragment.class);
-        if (firstFragment == null) {
-            mFragments[0] = SportMainFragment.newInstance("运动");
-            mFragments[1] = RecipeMainFragment.newInstance();
-            mFragments[2] = CommMainFragment.newInstance();
-            mFragments[3] = UserMainFragment.newInstance("用户");
-
-            //此处就会调用Fragment的各种初始化callback
-            loadMultipleRootFragment(R.id.blank_frag, 0,
-                    mFragments[0],
-                    mFragments[1],
-                    mFragments[2],
-                    mFragments[3]);
-        } else {
-            // 这里库已经做了Fragment恢复,所有不需要额外的处理了, 不会出现重叠问题
-
-            // 这里我们需要拿到mFragments的引用
-            mFragments[0] = firstFragment;
-            mFragments[1] = findFragment(RecipeMainFragment.class);
-            mFragments[2] = findFragment(CommMainFragment.class);
-            mFragments[3] = findFragment(UserMainFragment.class);
-        }
+        setUnbinder(ButterKnife.bind(this));
+        setUp();
     }
 
     //监听所有fragments的callbacks，实现FragmentManager.FragmentLifecycleCallbacks中的callbacks
@@ -78,6 +56,11 @@ public class MainActivity extends BaseActivity {
         public void onFragmentCreated(FragmentManager fm, Fragment f, Bundle savedInstanceState) {
             Log.i("MainActivity", "onFragmentCreated--->" + f.getClass().getSimpleName());
         }
+    }
+
+    public static Intent getStartIntent(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        return intent;
     }
 
     //底部导航选中callback
@@ -107,6 +90,7 @@ public class MainActivity extends BaseActivity {
                     return true;
                 }
                 case R.id.bn_user:{
+                    MvpApp.get(MainActivity.this).checkLogined(MainActivity.this);
                     mTitle.setTitle(R.string.top_title_user);
                     showHideFragment(mFragments[3], mFragments[prePos]);
                     prePos = 3;
@@ -135,6 +119,36 @@ public class MainActivity extends BaseActivity {
             isExit = false;
         }
     };
+
+    @Override
+    protected void setUp() {
+        //setSupportActionBar(mTitle);
+        BNVEffect.disableShiftMode(bnv);
+        bnv.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        SupportFragment firstFragment = findFragment(SportMainFragment.class);
+        if (firstFragment == null) {
+            mFragments[0] = SportMainFragment.newInstance("运动");
+            mFragments[1] = RecipeMainFragment.newInstance();
+            mFragments[2] = CommMainFragment.newInstance();
+            mFragments[3] = UserMainFragment.newInstance("用户");
+
+            //此处就会调用Fragment的各种初始化callback
+            loadMultipleRootFragment(R.id.blank_frag, 0,
+                    mFragments[0],
+                    mFragments[1],
+                    mFragments[2],
+                    mFragments[3]);
+        } else {
+            // 这里库已经做了Fragment恢复,所有不需要额外的处理了, 不会出现重叠问题
+
+            // 这里我们需要拿到mFragments的引用
+            mFragments[0] = firstFragment;
+            mFragments[1] = findFragment(RecipeMainFragment.class);
+            mFragments[2] = findFragment(CommMainFragment.class);
+            mFragments[3] = findFragment(UserMainFragment.class);
+        }
+    }
 
     private void exit() {
         if (!isExit) {

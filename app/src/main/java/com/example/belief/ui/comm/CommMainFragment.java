@@ -27,22 +27,16 @@ public class CommMainFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.communitylayout, container, false);
+        setUnbinder(ButterKnife.bind(this, view));
         return view;
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        unbinder = ButterKnife.bind(this, view);
+    protected void setUp(View view) {
+
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
-
-//    @OnClick(R.id.com2_rl_1)
+    //    @OnClick(R.id.com2_rl_1)
 //    public void goDetail(View v) {
 //        Intent intent=new Intent(getContext(), CommDetailActivity.class);
 //        getActivity().startActivity(intent);

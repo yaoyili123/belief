@@ -1,103 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/Relat3">
-            <TextView
-                android:id="@+id/line1"
-                android:layout_width="350dp"
-                android:layout_height="1dp"
-                android:background="@drawable/sport_drill"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/text3"
-                android:layout_centerInParent="true">
+    <android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/top_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/theme_color_deep"
+    app:title="登陆"
+    app:titleTextColor="@color/white"
+    app:titleMarginStart="150dp">
 
-            </TextView>
+    </android.support.v7.widget.Toolbar>
 
-            <TextView
-                android:id="@+id/text3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:layout_marginTop="20dp"
-                android:layout_alignLeft="@id/line1"
-                android:text="输入账号">
-            </TextView>
-        </RelativeLayout>
+    <EditText
+        android:layout_marginTop="50dp"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:textSize="23sp"
+        android:hint="输入账号"
+        android:id="@+id/login_un"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Relat3"
-            android:layout_marginTop="20dp"
-            android:id="@+id/Relat4">
-            <TextView
-                android:id="@+id/line2"
-                android:layout_width="350dp"
-                android:layout_height="1dp"
-                android:background="@drawable/sport_drill"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/text4"
-                android:layout_centerInParent="true">
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:textSize="23sp"
+        android:hint="输入密码"
+        android:layout_marginTop="20dp"
+        android:id="@+id/login_pw"/>
 
-            </TextView>
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:text="立即登录"
+        android:id="@+id/bt_login"/>
 
-            <TextView
-                android:id="@+id/text4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:layout_marginTop="20dp"
-                android:layout_alignLeft="@id/line2"
-                android:text="输入密码">
-            </TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="忘记密码？"
-                android:layout_alignTop="@id/text4"
-                android:layout_alignRight="@id/line2">
-
-            </TextView>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/Relat5"
-            android:layout_width="350dp"
-            android:layout_height="60dp"
-            android:background="@drawable/btn_normal_mine"
-            android:layout_centerInParent="true"
-            android:layout_below="@id/Relat4"
-            android:layout_marginTop="40dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="立即登录"
-                android:textColor="@color/white"
-                android:layout_centerInParent="true"
-                android:textSize="20sp">
-            </TextView>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Relat5"
-            android:layout_centerInParent="true">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="注册账号"
-                android:layout_marginTop="40dp">
-            </TextView>
-        </RelativeLayout>
-
-    </RelativeLayout>
-</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="注册账号"/>
+</LinearLayout>

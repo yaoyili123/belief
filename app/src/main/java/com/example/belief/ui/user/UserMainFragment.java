@@ -8,13 +8,11 @@ import android.view.ViewGroup;
 
 import com.example.belief.R;
 import com.example.belief.ui.MainActivity;
-import com.example.belief.utils.ToastUtils;
-
-import me.yokeyword.fragmentation.SupportFragment;
+import com.example.belief.ui.base.BaseFragment;
 
 /*用户模块一级页面
  * */
-public class UserMainFragment extends SupportFragment {
+public class UserMainFragment extends BaseFragment {
 
     MainActivity mainActivity;
 
@@ -35,9 +33,13 @@ public class UserMainFragment extends SupportFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        ToastUtils.showToast("call userMainFragment onCreateView");
         View view = inflater.inflate(R.layout.farg_user_main, container, false);
         return view;
+    }
+
+    @Override
+    protected void setUp(View view) {
+
     }
 
     @Override
@@ -47,7 +49,6 @@ public class UserMainFragment extends SupportFragment {
 
     @Override
     public void onDestroyView() {
-        ToastUtils.showToast("call userMainFragment onDestroyView");
         super.onDestroyView();
     }
 }
