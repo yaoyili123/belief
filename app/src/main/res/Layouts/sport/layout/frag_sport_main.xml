@@ -12,16 +12,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/sport_main_part1"/>
+        <include layout="@layout/sport_part1"/>
 
-        <include layout="@layout/sport_main_part2"/>
+        <include layout="@layout/sport_part2"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="15dp"
             />
 
-        <include layout="@layout/sport_main_part3"/>
+        <include layout="@layout/sport_part3"/>
 
     </LinearLayout>
 

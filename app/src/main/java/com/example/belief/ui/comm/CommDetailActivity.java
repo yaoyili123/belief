@@ -10,7 +10,7 @@ public class CommDetailActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dynamic_detailslayout);
+        setContentView(R.layout.act_comm_dynamic_main);
         setUp();
     }
 

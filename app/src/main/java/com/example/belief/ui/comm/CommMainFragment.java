@@ -26,7 +26,7 @@ public class CommMainFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.communitylayout, container, false);
+        View view = inflater.inflate(R.layout.act_comm_amain, container, false);
         setUnbinder(ButterKnife.bind(this, view));
         return view;
     }

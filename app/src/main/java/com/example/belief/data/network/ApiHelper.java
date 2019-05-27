@@ -75,21 +75,21 @@ public interface ApiHelper {
     @POST("comm/share")
     Single<ResponseWrapper<Map>> publishShare(@Body RequestShare share);
 
-    @GET("recipe/collects/{uid}")
+    @GET("/collects/{uid}")
     Observable<ResponseWrapper<List<Recipe>>> getRecipesByUser(@Path("uid")int uid);
 
-    @PUT("recipe/collects/{uid}/{rid}")
+    @PUT("/collects/{uid}/{rid}")
     Single<ResponseWrapper<Map>> addRecipe(@Path("uid")int uid, @Path("rid")int rid);
 
-    @DELETE("recipe/collects/{uid}/{rid}")
+    @DELETE("/collects/{uid}/{rid}")
     Single<ResponseWrapper<Map>> deleteRecipe(@Path("uid")int uid, @Path("rid")int rid);
 
-    @GET("recipe/food")
+    @GET("/food")
     Observable<ResponseWrapper<List<Food>>> getFoods();
 
-    @GET("recipe/type")
+    @GET("/type")
     Observable<ResponseWrapper<List<RecipeType>>> getRecipeType();
 
-    @GET("recipe/{tid}")
+    @GET("/{tid}")
     Observable<ResponseWrapper<List<Recipe>>> getRecipesByType(@Path("tid")int tid);
 }

@@ -6,8 +6,8 @@
 
     <!--怎么让它自动下去-->
 
-    <include layout="@layout/community_1"/>
+    <include layout="@layout/comm_part"/>
 
-    <include layout="@layout/community_1"/>
+    <include layout="@layout/comm_part"/>
 
 </LinearLayout>

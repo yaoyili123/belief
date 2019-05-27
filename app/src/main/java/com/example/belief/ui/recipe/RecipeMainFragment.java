@@ -21,7 +21,7 @@ public class RecipeMainFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.searchlayout, container, false);
+        View view = inflater.inflate(R.layout.act_search_amain, container, false);
         return view;
     }
 

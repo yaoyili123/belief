@@ -159,7 +159,7 @@
             </LinearLayout>
 
         </LinearLayout>
-        <include layout="@layout/user_part1"/>
+        <include layout="@layout/user_part"/>
 
     </LinearLayout>
 
