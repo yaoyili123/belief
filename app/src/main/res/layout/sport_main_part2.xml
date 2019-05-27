@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:id="@+id/bt_sport_time"
     android:gravity="center_vertical">
 
     <LinearLayout
@@ -27,10 +28,11 @@
         android:gravity="right">
 
         <TextView
+            android:id="@+id/sport_time_sum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="40dp"
-            android:text="分钟"
+            android:text="卡路里"
             android:textSize="18sp"/>
 
     </LinearLayout>

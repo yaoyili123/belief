@@ -33,12 +33,14 @@ public class MvpApp extends Application {
 
     private UserAuth curUser;
 
+    private String userHead;
+
     //DI连接器，用来对Application的成员进行注入
     private ApplicationComponent applicationComponent;
 
-    public Map<Long, String> classType;
+    public Map<Integer, String> classType;
 
-    public Map<Long, String> classLevel;
+    public Map<Integer, String> classLevel;
 
     //用于提供自己实例对象的静态方法
     public static MvpApp get(Context context) {
@@ -60,24 +62,31 @@ public class MvpApp extends Application {
 //        Fragmentation.builder()
 //                .stackViewMode(Fragmentation.BUBBLE)
 //                .debug(BuildConfig.DEBUG).install();
-//        ToastUtils.init(this);
-//        SQLiteStudioService.instance().start(this);
+        ToastUtils.init(this);
 
         //启动DEBUG工具
         Stetho.initializeWithDefaults(this);
 
-        //使用SQL脚本更新数据库
-////        updateDbByScript();
-
         //初始化全局变量
         initConst();
+    }
 
+    public String getUserHead() {
+        return userHead;
+    }
+
+    public void setUserHead(String userHead) {
+        this.userHead = userHead;
     }
 
     //是否登陆，没有就跳转
     public void checkLogined(MvpView context) {
         if (curUser == null)
         context.toLogin();
+    }
+
+    public boolean isLogined(MvpView context) {
+        return curUser != null;
     }
 
     public UserAuth getCurUser() {
@@ -100,12 +109,13 @@ public class MvpApp extends Application {
         classType = new HashMap<>();
         classLevel = new HashMap<>();
 
-        classLevel.put((long)0, "初级");
-        classLevel.put((long)1, "中级");
-        classLevel.put((long)2, "高级");
+        classLevel.put(0, "初级");
+        classLevel.put(1, "中级");
+        classLevel.put(2, "高级");
 
-        classType.put((long)0, "瑜伽");
-        classType.put((long)1, "核心");
-        classType.put((long)2, "上肢");
+        classType.put(0, "瑜伽");
+        classType.put(1, "核心");
+        classType.put(2, "上肢");
+        classType.put(3, "基础");
     }
 }

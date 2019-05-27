@@ -2,6 +2,8 @@ package com.example.belief.di.component;
 
 import com.example.belief.di.PerActivity;
 import com.example.belief.di.module.ActivityModule;
+import com.example.belief.ui.sport.ManageUserClassActivity;
+import com.example.belief.ui.sport.SportMainFragment;
 import com.example.belief.ui.user.LoginActivity;
 
 import dagger.Component;
@@ -42,6 +44,9 @@ dependencies含义，使得每一个ApplicationComponent中的provision method�
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
 
-//    void inject(LoginActivity mainActivity);
     void inject(LoginActivity activity);
+
+    void inject(SportMainFragment fragment);
+
+    void inject(ManageUserClassActivity activity);
 }

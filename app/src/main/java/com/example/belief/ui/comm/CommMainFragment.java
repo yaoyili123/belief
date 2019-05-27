@@ -31,6 +31,7 @@ public class CommMainFragment extends BaseFragment {
         return view;
     }
 
+
     @Override
     protected void setUp(View view) {
 

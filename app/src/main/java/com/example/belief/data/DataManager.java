@@ -16,6 +16,7 @@ import com.example.belief.data.network.model.UserInfo;
 import com.example.belief.data.network.model.UserKcalTrend;
 import com.example.belief.data.network.model.UserSportInfo;
 import com.example.belief.di.ApplicationContext;
+import com.example.belief.utils.RetrofitServiceManager;
 
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,7 @@ import javax.inject.Singleton;
 
 import io.reactivex.Observable;
 import io.reactivex.Single;
+import okhttp3.ResponseBody;
 import retrofit2.http.Path;
 
 /*
@@ -61,6 +63,10 @@ public class DataManager {
                 throw new ApiFault(response.getStatus(), response.getMessage());
             return response.getData();
         });
+    }
+
+    public Observable<ResponseBody>  downPic(String fileName) {
+        return mApiHelper.downPic(RetrofitServiceManager.BASE_URL + "/" + fileName);
     }
 
     public Observable<List<SportClass>> getJoinedClasses(int uid) {

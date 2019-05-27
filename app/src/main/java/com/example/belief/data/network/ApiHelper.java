@@ -17,17 +17,25 @@ import java.util.Map;
 
 import io.reactivex.Observable;
 import io.reactivex.Single;
+import okhttp3.ResponseBody;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Streaming;
+import retrofit2.http.Url;
 
 //当返回值为Map时，由于Map也是集合的一种，
 // 使用Observerable时每次处理某个元素时，onNext就会结束
 // 因此应该使用Single
 public interface ApiHelper {
+
+    //下载图片
+    @Streaming
+    @GET
+    Observable<ResponseBody> downPic(@Url String fileUrl);
 
     @GET("sport/class/{uid}")
     Observable<ResponseWrapper<List<SportClass>>> getJoinedClasses(@Path("uid") int uid);

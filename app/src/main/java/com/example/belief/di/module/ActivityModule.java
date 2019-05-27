@@ -5,6 +5,9 @@ import android.content.Context;
 
 import com.example.belief.MockPresenter;
 import com.example.belief.di.ActivityContext;
+import com.example.belief.ui.sport.SportMvpPresenter;
+import com.example.belief.ui.sport.SportMvpView;
+import com.example.belief.ui.sport.SportPresenter;
 import com.example.belief.ui.user.UserMvpPresenter;
 import com.example.belief.ui.user.UserMvpView;
 import com.example.belief.ui.user.UserPresenter;
@@ -63,6 +66,12 @@ public class ActivityModule {
     @Provides
     UserMvpPresenter<UserMvpView>
     privideUserPresenter(UserPresenter<UserMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    SportMvpPresenter<SportMvpView>
+    privideSportPresenter(SportPresenter<SportMvpView> presenter) {
         return presenter;
     }
 }

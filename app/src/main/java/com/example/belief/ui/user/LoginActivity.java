@@ -12,6 +12,8 @@ import com.example.belief.data.network.model.UserAuth;
 import com.example.belief.ui.MainActivity;
 import com.example.belief.ui.base.BaseActivity;
 
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -88,9 +90,15 @@ public class LoginActivity extends BaseActivity
 
     //设置全局变量并跳转到主活动
     @Override
-    public void openMainActivity(UserAuth userAuth) {
-        if (userAuth != null)
-            MvpApp.get(this).setCurUser(userAuth);
+    public void openMainActivity(Map args) {
+        if (args != null) {
+            UserAuth userAuth = (UserAuth) args.get("userAuth");
+            String image = (String) args.get("photo_url");
+            if (userAuth != null)
+                MvpApp.get(this).setCurUser(userAuth);
+            if (image != null)
+                MvpApp.get(this).setUserHead(image);
+        }
         Intent intent = MainActivity.getStartIntent(LoginActivity.this);
         startActivity(intent);
         finish();

@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 //提供Retrofit实例和OKHTTP配置类
 public class RetrofitServiceManager {
 
-    final static private String BASE_URL = "http://10.0.2.2:8080";
+    final static public String BASE_URL = "http://10.0.2.2:8080";
     private static final int DEFAULT_TIME_OUT = 30;
     private static final int DEFAULT_READ_TIME_OUT = 30;
 

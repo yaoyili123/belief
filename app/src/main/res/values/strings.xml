@@ -22,7 +22,7 @@
     <string name="top_tile_class_list">我的课程</string>
 
 
-    <!--LabLayout class list-->
+    <!--sport class tab-->
     <string name="tab_allclass">全部</string>
     <string name="tab_done">已完成</string>
     <string name="tab_doing">进行中</string>
