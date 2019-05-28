@@ -20,10 +20,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:textSize="30sp"
+            android:id="@+id/class_detail_title"
             android:textColor="@color/white"
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="10dp"
-            android:text="零基础适应性训练" />
+            android:text="正在加载" />
 
     </LinearLayout>
 
@@ -55,7 +56,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
-                android:text="37千卡" />
+                android:id="@+id/class_detail_kcal"
+                android:text="千卡" />
 
         </LinearLayout>
 
@@ -79,7 +81,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
-                android:text="14分钟" />
+                android:id="@+id/class_detail_time"
+                android:text="分钟" />
 
         </LinearLayout>
 
@@ -103,7 +106,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
-                android:text="1leval" />
+                android:id="@+id/class_detail_level"
+                android:text="？？" />
         </LinearLayout>
 
 
@@ -129,7 +133,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:textSize="15sp"
-            android:text="@string/no_apparatus"/>
+            android:id="@+id/class_detail_detail"
+            android:text="正在加载。。。"/>
 
     </LinearLayout>
 
@@ -151,6 +156,7 @@
             android:layout_height="80dp"
             android:background="@color/theme_color_deep"
             android:text="开始训练"
+            android:id="@+id/class_detail_start"
             android:textColor="@color/white"
             android:focusable="false"
             android:textSize="19sp"

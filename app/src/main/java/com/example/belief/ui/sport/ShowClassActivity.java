@@ -21,9 +21,8 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class ManageUserClassActivity extends BaseActivity implements SportMvpView {
+public class ShowClassActivity extends BaseActivity implements SportMvpView {
 
     @BindView(R.id.classList_tab)
     public TabLayout tabLayout;
@@ -33,6 +32,9 @@ public class ManageUserClassActivity extends BaseActivity implements SportMvpVie
 
     @BindView(R.id.classList_content)
     public ViewPager viewPager;
+
+    //业务逻辑标识，1为查看参加课程，2为显示所有课程
+    public int business;
 
     @Inject
     public SportMvpPresenter<SportMvpView> sportMvpPresenter;
@@ -60,16 +62,18 @@ public class ManageUserClassActivity extends BaseActivity implements SportMvpVie
         super.onDestroy();
     }
 
-    @OnClick(R.id.classList_title)
-    public void backHome() {
-        this.finish();
-    }
-
     @Override
     protected void setUp() {
+        business = getIntent().getIntExtra("business", 0);
         //获取数据
-        sportMvpPresenter.getJoinedClasses(MvpApp.get(this).getCurUser().getUid());
-        mTitle.setTitle(R.string.top_tile_class_list);
+        if (business == 1) {
+            sportMvpPresenter.getJoinedClasses(MvpApp.get(this).getCurUser().getUid());
+            mTitle.setTitle(R.string.top_title_class_list);
+        }
+        else if(business == 2) {
+            sportMvpPresenter.getAllClasses();
+            mTitle.setTitle(R.string.top_title_add_class);
+        }
     }
 
     public void setData(List data) {

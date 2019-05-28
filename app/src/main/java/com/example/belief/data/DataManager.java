@@ -69,6 +69,14 @@ public class DataManager {
         return mApiHelper.downPic(RetrofitServiceManager.BASE_URL + "/" + fileName);
     }
 
+    public Single<Map> getSportClass(int scid, int uid) {
+        return payLoad(mApiHelper.getSportClass(scid, uid));
+    }
+
+    public Observable<List<SportClass>> getAllClasses() {
+        return payLoad(mApiHelper.getAllClasses());
+    }
+
     public Observable<List<SportClass>> getJoinedClasses(int uid) {
         return payLoad(mApiHelper.getJoinedClasses(uid));
     }
@@ -79,6 +87,10 @@ public class DataManager {
 
     public Single<Map> addClassToUser(int uid, List<Integer> classList) {
         return payLoad(mApiHelper.addClassToUser(uid, classList));
+    }
+
+    public Single<Map> deleteJoinedClass(int uid, int scid){
+        return payLoad(mApiHelper.deleteJoinedClass(uid, scid));
     }
 
     public Single<Map> settleKcal( int uid, int kcal, int time){

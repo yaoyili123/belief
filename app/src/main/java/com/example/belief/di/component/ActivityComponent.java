@@ -2,7 +2,8 @@ package com.example.belief.di.component;
 
 import com.example.belief.di.PerActivity;
 import com.example.belief.di.module.ActivityModule;
-import com.example.belief.ui.sport.ManageUserClassActivity;
+import com.example.belief.ui.sport.ClassDetailActivity;
+import com.example.belief.ui.sport.ShowClassActivity;
 import com.example.belief.ui.sport.SportMainFragment;
 import com.example.belief.ui.user.LoginActivity;
 
@@ -48,5 +49,7 @@ public interface ActivityComponent {
 
     void inject(SportMainFragment fragment);
 
-    void inject(ManageUserClassActivity activity);
+    void inject(ShowClassActivity activity);
+
+    void inject(ClassDetailActivity activity);
 }

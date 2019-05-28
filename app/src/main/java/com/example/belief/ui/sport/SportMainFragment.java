@@ -72,7 +72,8 @@ public class SportMainFragment extends BaseFragment implements SportMvpView {
             getBaseActivity().startActivity(LoginActivity.getStartIntent(getBaseActivity()));
             return;
         }
-        Intent intent=new Intent(getContext(), ManageUserClassActivity.class);
+        Intent intent=new Intent(getContext(), ShowClassActivity.class);
+        intent.putExtra("business", 1);
         getActivity().startActivity(intent);
     }
 
@@ -82,7 +83,8 @@ public class SportMainFragment extends BaseFragment implements SportMvpView {
             getBaseActivity().startActivity(LoginActivity.getStartIntent(getBaseActivity()));
             return;
         }
-        Intent intent=new Intent(getContext(), ManageUserClassActivity.class);
+        Intent intent=new Intent(getContext(), ShowClassActivity.class);
+        intent.putExtra("business", 2);
         getActivity().startActivity(intent);
     }
 
@@ -92,7 +94,7 @@ public class SportMainFragment extends BaseFragment implements SportMvpView {
             getBaseActivity().startActivity(LoginActivity.getStartIntent(getBaseActivity()));
             return;
         }
-        Intent intent=new Intent(getContext(), ManageUserClassActivity.class);
-        getActivity().startActivity(intent);
+//        Intent intent=new Intent(getContext(), ShowClassActivity.class);
+//        getActivity().startActivity(intent);
     }
 }

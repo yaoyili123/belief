@@ -19,7 +19,8 @@
     <string name="top_title_recipe">健康饮食</string>
     <string name="top_title_comm">交流健身</string>
     <string name="top_title_user">个人信息</string>
-    <string name="top_tile_class_list">我的课程</string>
+    <string name="top_title_class_list">我的课程</string>
+    <string name="top_title_add_class">添加课程</string>
 
 
     <!--sport class tab-->

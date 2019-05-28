@@ -1,5 +1,6 @@
 package com.example.belief.ui.sport;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -8,15 +9,19 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.SimpleAdapter;
 
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
+import com.example.belief.MvpApp;
 import com.example.belief.R;
 import com.example.belief.data.network.model.SportClass;
 import com.example.belief.ui.base.BaseFragment;
 import com.example.belief.ui.base.MvpView;
+import com.example.belief.utils.UIUtils;
+import com.flyco.dialog.widget.NormalDialog;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,6 +39,16 @@ public class ShowClassListFragment extends BaseFragment implements MvpView {
     public List<SportClass> classList;
 
     public List<Map<String, Object>> showList;
+
+    public SimpleAdapter adapter;
+
+    public NormalDialog mdialog;
+
+    public int willDelClass;
+
+    public int willDelPos;
+
+    public int business;
 
     public static ShowClassListFragment newInstance(int id) {
         Bundle args = new Bundle();
@@ -54,12 +69,15 @@ public class ShowClassListFragment extends BaseFragment implements MvpView {
 
     @Override
     protected void setUp(View view) {
+
+        business = ((ShowClassActivity)getBaseActivity()).business;
+
         //准备数据
         showList = new ArrayList<>();
         int id = getArguments().getInt("id");
         if (id >= 0) {
             classList = new ArrayList<>();
-            List<SportClass> tmp = ((ManageUserClassActivity)getBaseActivity()).classList;
+            List<SportClass> tmp = ((ShowClassActivity)getBaseActivity()).classList;
             tmp.forEach(item -> {
                 if (item.getType() == id) {
                     Map map = new HashMap<String, Object>();
@@ -71,7 +89,7 @@ public class ShowClassListFragment extends BaseFragment implements MvpView {
             });
         }
         else {
-            classList = ((ManageUserClassActivity)getBaseActivity()).classList;
+            classList = ((ShowClassActivity)getBaseActivity()).classList;
             classList.forEach(item -> {
                 Map map = new HashMap<String, Object>();
                 map.put("class_name", item.getName());
@@ -80,13 +98,41 @@ public class ShowClassListFragment extends BaseFragment implements MvpView {
             });
         }
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int scid = classList.get(position).getScid();
+                Intent intent = new Intent(getContext(), ClassDetailActivity.class);
+                intent.putExtra("scid", scid);
+                getActivity().startActivity(intent);
+            }
+        });
 
-        SimpleAdapter adapter = new SimpleAdapter(getBaseActivity(), showList,
+        //设置ListView
+        adapter = new SimpleAdapter(getBaseActivity(), showList,
                 R.layout.item_show_class, new String[] { "class_name",
                 "class_time" }, new int[] {
                 R.id.show_class_name,
                 R.id.show_class_time });
         listView.setAdapter(adapter);
+
+        if (business == 1) {
+            showJoinedClass();
+        }
+
+    }
+
+    private void showJoinedClass() {
+
+        //设置对话框
+        mdialog = UIUtils.getNormalDialog("确认删除", getBaseActivity());
+        mdialog.setOnBtnClickL(() -> { mdialog.dismiss(); }, () -> {
+            //删除课程
+            ((ShowClassActivity)getBaseActivity()).sportMvpPresenter
+                    .deleteJoinedClass(MvpApp.get(getBaseActivity()).getCurUser().getUid(), willDelClass, willDelPos,
+                            showList, classList, mdialog, adapter);
+
+        });
 
         listView.setMenuCreator(menu -> {
             // create "delete" item
@@ -107,16 +153,15 @@ public class ShowClassListFragment extends BaseFragment implements MvpView {
                 (int position, SwipeMenu menu, int index) -> {
                     switch (index) {
                         case 0: {
-                            // delete
+                            willDelClass = classList.get(position).getScid();
+                            willDelPos = position;
+                            mdialog.show();
                             break;
                         }
                     }
                     // false : close the menu; true : not close the menu
                     return false;
                 });
-    }
-
-    public void setData() {
 
     }
 

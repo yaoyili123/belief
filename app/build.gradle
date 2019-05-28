@@ -65,6 +65,7 @@ dependencies {
 
     //ui
     implementation 'com.baoyz.swipemenulistview:library:1.3.0'
+    implementation 'com.flyco.dialog:FlycoDialog_Lib:1.3.2@aar'
 
     //fragment managing
     implementation 'me.yokeyword:fragmentation:1.3.6'
@@ -94,7 +95,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
 
     //http client
-//    implementation "com.amitshekhar.android:rx2-android-networking:$rootProject.rx2FastAndroidNetworking"
     implementation 'com.squareup.okhttp3:okhttp:3.8.1'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'

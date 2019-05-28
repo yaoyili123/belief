@@ -37,7 +37,13 @@ public interface ApiHelper {
     @GET
     Observable<ResponseBody> downPic(@Url String fileUrl);
 
-    @GET("sport/class/{uid}")
+    @GET("sport/show_class")
+    Observable<ResponseWrapper<List<SportClass>>> getAllClasses();
+
+    @GET("sport/show_class/{scid}/{uid}")
+    Single<ResponseWrapper<Map>> getSportClass(@Path("scid") int scid, @Path("uid") int uid);
+
+    @GET("sport/joined_class/{uid}")
     Observable<ResponseWrapper<List<SportClass>>> getJoinedClasses(@Path("uid") int uid);
 
     @GET("sport/total_time/{uid}")
@@ -45,6 +51,9 @@ public interface ApiHelper {
 
     @POST("sport/add_class/{uid}")
     Single<ResponseWrapper<Map>> addClassToUser(@Path("uid") int uid, @Body List<Integer> classList);
+
+    @DELETE("sport/del_class/{uid}/{scid}")
+    Single<ResponseWrapper<Map>> deleteJoinedClass(@Path("uid") int uid, @Path("scid") int scid);
 
     @PUT("sport/settle/{uid}/{kcal}/{time}")
     Single<ResponseWrapper<Map>> settleKcal(@Path("uid") int uid, @Path("kcal") int kcal,

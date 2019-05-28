@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.sport.ManageUserClassActivity"></activity>
+        <activity android:name=".ui.sport.ShowClassActivity"></activity>
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +24,7 @@
         </activity>
         <activity android:name=".ui.comm.CommDetailActivity"></activity>
         <activity android:name=".ui.user.LoginActivity"></activity>
+        <activity android:name=".ui.sport.ClassDetailActivity"></activity>
     </application>
 
 </manifest>
