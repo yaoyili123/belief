@@ -22,4 +22,8 @@ public interface SportMvpPresenter<V extends MvpView> extends MvpPresenter<V> {
     void getAllClasses();
 
     void getSportClass(int scid, int uid);
+
+    void getSportActions(int scid);
+
+    void downPicGIF(String url);
 }

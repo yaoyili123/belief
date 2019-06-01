@@ -1,6 +1,6 @@
 package com.example.belief.data.network.model;
 
-public class ShareInfo {
+public class ShareInfoResponse {
 
     private Integer sid;
 
@@ -9,6 +9,26 @@ public class ShareInfo {
     private String title;
 
     private String photoUrl;
+
+    private String author;
+
+    private String headUrl;
+
+    public String getHeadUrl() {
+        return headUrl;
+    }
+
+    public void setHeadUrl(String headUrl) {
+        this.headUrl = headUrl;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
     public Integer getSid() {
         return sid;

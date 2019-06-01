@@ -4,10 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <!--怎么让它自动下去-->
-
-    <include layout="@layout/comm_part"/>
-
-    <include layout="@layout/comm_part"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rec_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

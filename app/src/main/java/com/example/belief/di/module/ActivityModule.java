@@ -3,8 +3,10 @@ package com.example.belief.di.module;
 import android.app.Activity;
 import android.content.Context;
 
-import com.example.belief.MockPresenter;
 import com.example.belief.di.ActivityContext;
+import com.example.belief.ui.comm.CommMvpPresenter;
+import com.example.belief.ui.comm.CommMvpView;
+import com.example.belief.ui.comm.CommPresenter;
 import com.example.belief.ui.sport.SportMvpPresenter;
 import com.example.belief.ui.sport.SportMvpView;
 import com.example.belief.ui.sport.SportPresenter;
@@ -55,14 +57,6 @@ public class ActivityModule {
         return mActivity;
     }
 
-    //FIXME：我猜 有参数的应该是直接去用Contructor进行注入，再这里只是为了声明Scope
-    @Provides
-//    @PerActivity 这个类不作为V层组件的依赖，仅用来测试
-    MockPresenter provideMockPresenter(
-            MockPresenter presenter) {
-        return presenter;
-    }
-
     @Provides
     UserMvpPresenter<UserMvpView>
     privideUserPresenter(UserPresenter<UserMvpView> presenter) {
@@ -74,4 +68,8 @@ public class ActivityModule {
     privideSportPresenter(SportPresenter<SportMvpView> presenter) {
         return presenter;
     }
+
+    @Provides
+    CommMvpPresenter<CommMvpView>
+    privideCommPresenter(CommPresenter<CommMvpView> presenter) { return presenter; }
 }

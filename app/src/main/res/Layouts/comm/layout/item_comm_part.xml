@@ -7,6 +7,7 @@
     <ImageView
         android:layout_width="200dp"
         android:layout_height="250dp"
+        android:id="@+id/share_img"
         />
 
     <View
@@ -24,6 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/share_title"
             android:text="@string/com_name"
             android:layout_margin="10dp"/>
 
@@ -45,7 +47,7 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-
+                android:id="@+id/share_head"
                 android:background="@drawable/circle2" />
 
         </LinearLayout>
@@ -58,6 +60,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/share_author"
                 android:text="@string/com_name1"/>
 
         </LinearLayout>

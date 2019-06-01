@@ -1,6 +1,8 @@
 package com.example.belief.ui.sport;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ClassDetailActivity extends BaseActivity implements SportMvpView {
 
@@ -73,6 +76,13 @@ public class ClassDetailActivity extends BaseActivity implements SportMvpView {
             mStart.setText("已参加，开始训练");
         else
             mStart.setText("参加课程并开始训练");
+    }
+
+    @OnClick(R.id.class_detail_start)
+    public void startSport(View v) {
+        Intent intent = new Intent(this, StartSportActivity.class);
+        intent.putExtra("scid", ((Double) sportClass.get("scid")).intValue());
+        this.startActivity(intent);
     }
 }
 

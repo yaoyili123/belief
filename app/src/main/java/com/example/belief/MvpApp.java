@@ -49,6 +49,7 @@ public class MvpApp extends Application {
 
     @Override
     public void onCreate() {
+        curUser = new UserAuth(1, "yaoyili", "123456");
         super.onCreate();
         applicationComponent = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this)).build();
@@ -69,8 +70,9 @@ public class MvpApp extends Application {
 
         //初始化全局变量
         initConst();
-    }
 
+
+    }
     public String getUserHead() {
         return userHead;
     }

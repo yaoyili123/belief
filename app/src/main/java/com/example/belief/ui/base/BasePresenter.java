@@ -1,11 +1,15 @@
 package com.example.belief.ui.base;
 
+import android.graphics.BitmapFactory;
+import android.widget.ImageView;
+
 import com.example.belief.data.DataManager;
 import com.example.belief.utils.rx.SchedulerProvider;
 
 import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
+import okhttp3.ResponseBody;
 
 /*
 * P层基类，Presenter需要持有的state: M层接口、V层组件引用
@@ -46,6 +50,24 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
     public boolean isViewAttached() {
         return mMvpView != null;
     }
+
+    @Override
+    public void downPic(String url, ImageView imageView) {
+        if (url == null || url.isEmpty())
+            return;
+        //获取用户头像
+        getCompositeDisposable().add(getDataManager().downPic(url)
+                .map((ResponseBody responseBody) -> BitmapFactory.decodeStream(responseBody.byteStream()))
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe((bitmap) -> {
+                    imageView.setImageBitmap(bitmap);
+                }, (e) -> {
+                    getMvpView().onError("图片加载失败");
+                    getMvpView().handleApiError(e);
+                }));
+    }
+
 
     public V getMvpView() {
         return mMvpView;

@@ -5,7 +5,8 @@ import com.example.belief.data.network.model.Recipe;
 import com.example.belief.data.network.model.RecipeType;
 import com.example.belief.data.network.model.RequestShare;
 import com.example.belief.data.network.model.ResponseWrapper;
-import com.example.belief.data.network.model.ShareInfo;
+import com.example.belief.data.network.model.ShareInfoResponse;
+import com.example.belief.data.network.model.SportAction;
 import com.example.belief.data.network.model.SportClass;
 import com.example.belief.data.network.model.UserAuth;
 import com.example.belief.data.network.model.UserInfo;
@@ -37,6 +38,9 @@ public interface ApiHelper {
     @GET
     Observable<ResponseBody> downPic(@Url String fileUrl);
 
+    @GET("sport/actions/{scid}")
+    Observable<ResponseWrapper<List<SportAction>>> getSportActions(@Path("scid") int scid);
+
     @GET("sport/show_class")
     Observable<ResponseWrapper<List<SportClass>>> getAllClasses();
 
@@ -49,8 +53,8 @@ public interface ApiHelper {
     @GET("sport/total_time/{uid}")
     Observable<ResponseWrapper<Integer>> getTotalKcal(@Path("uid") int uid);
 
-    @POST("sport/add_class/{uid}")
-    Single<ResponseWrapper<Map>> addClassToUser(@Path("uid") int uid, @Body List<Integer> classList);
+    @PUT("sport/add_class/{uid}/{scid}")
+    Single<ResponseWrapper<Map>> addClassToUser(@Path("uid") int uid, @Path("scid") int scid);
 
     @DELETE("sport/del_class/{uid}/{scid}")
     Single<ResponseWrapper<Map>> deleteJoinedClass(@Path("uid") int uid, @Path("scid") int scid);
@@ -79,7 +83,7 @@ public interface ApiHelper {
     getKcalTrand(@Path("uid")int uid, @Path("type")int type);
 
     @GET("comm/share_list")
-    Observable<ResponseWrapper<List<ShareInfo>>> getShareList();
+    Observable<ResponseWrapper<List<ShareInfoResponse>>> getShareList();
 
     @POST("comm/share")
     Single<ResponseWrapper<Map>> publishShare(@Body RequestShare share);

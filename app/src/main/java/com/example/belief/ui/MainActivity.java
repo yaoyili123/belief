@@ -1,12 +1,15 @@
 package com.example.belief.ui;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
@@ -41,15 +44,22 @@ public class MainActivity extends BaseActivity {
     public BottomNavigationView bnv;
 
     private MenuItem mi;
+
     private boolean isExit = false;
+
     private SupportFragment[] mFragments = new SupportFragment[4];
+
     private int prePos = 0;
+
+    private String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.frag_main);
         setUnbinder(ButterKnife.bind(this));
+        requestPermission();
         setUp();
     }
 
@@ -167,5 +177,13 @@ public class MainActivity extends BaseActivity {
             finish();
             System.exit(0);
         }
+    }
+
+    private void requestPermission() {
+        // 版本判断。当手机系统大于 23 时，才有必要去判断权限是否获取
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ActivityCompat.requestPermissions(this, permissions, 321);
+        }
+
     }
 }

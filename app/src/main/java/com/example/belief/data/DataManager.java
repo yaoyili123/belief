@@ -9,7 +9,8 @@ import com.example.belief.data.network.model.Recipe;
 import com.example.belief.data.network.model.RecipeType;
 import com.example.belief.data.network.model.RequestShare;
 import com.example.belief.data.network.model.ResponseWrapper;
-import com.example.belief.data.network.model.ShareInfo;
+import com.example.belief.data.network.model.ShareInfoResponse;
+import com.example.belief.data.network.model.SportAction;
 import com.example.belief.data.network.model.SportClass;
 import com.example.belief.data.network.model.UserAuth;
 import com.example.belief.data.network.model.UserInfo;
@@ -69,6 +70,10 @@ public class DataManager {
         return mApiHelper.downPic(RetrofitServiceManager.BASE_URL + "/" + fileName);
     }
 
+    public Observable<List<SportAction>> getSportActions(int scid) {
+        return payLoad(mApiHelper.getSportActions(scid));
+    }
+
     public Single<Map> getSportClass(int scid, int uid) {
         return payLoad(mApiHelper.getSportClass(scid, uid));
     }
@@ -85,8 +90,8 @@ public class DataManager {
         return payLoad(mApiHelper.getTotalKcal(uid));
     }
 
-    public Single<Map> addClassToUser(int uid, List<Integer> classList) {
-        return payLoad(mApiHelper.addClassToUser(uid, classList));
+    public Single<Map> addClassToUser(int uid, int scid) {
+        return payLoad(mApiHelper.addClassToUser(uid, scid));
     }
 
     public Single<Map> deleteJoinedClass(int uid, int scid){
@@ -126,7 +131,7 @@ public class DataManager {
         return payLoad(mApiHelper.getKcalTrand(uid, type));
     }
 
-    public Observable<List<ShareInfo>> getShareList(){
+    public Observable<List<ShareInfoResponse>> getShareList(){
 
         return payLoad(mApiHelper.getShareList());
     }

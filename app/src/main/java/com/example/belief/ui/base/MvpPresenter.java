@@ -1,6 +1,8 @@
 package com.example.belief.ui.base;
 
 
+import android.widget.ImageView;
+
 /*
 P层通用接口
 * */
@@ -11,4 +13,7 @@ public interface MvpPresenter <V extends MvpView> {
 
     //销毁View层引用
     void onDetach();
+
+    //下载图片
+    void downPic(String url, ImageView imageView);
 }
