@@ -44,7 +44,7 @@ public interface ApiHelper {
     @GET("sport/show_class")
     Observable<ResponseWrapper<List<SportClass>>> getAllClasses();
 
-    @GET("sport/show_class/{scid}/{uid}")
+    @GET("sport/show_class/{uid}/{scid}")
     Single<ResponseWrapper<Map>> getSportClass(@Path("scid") int scid, @Path("uid") int uid);
 
     @GET("sport/joined_class/{uid}")

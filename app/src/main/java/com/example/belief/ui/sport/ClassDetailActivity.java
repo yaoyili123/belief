@@ -82,7 +82,10 @@ public class ClassDetailActivity extends BaseActivity implements SportMvpView {
     public void startSport(View v) {
         Intent intent = new Intent(this, StartSportActivity.class);
         intent.putExtra("scid", ((Double) sportClass.get("scid")).intValue());
+        intent.putExtra("kcal", ((Double) sportClass.get("kcal")).intValue());
         this.startActivity(intent);
+        sportMvpPresenter.addClassToUser(((Double) sportClass.get("scid")).intValue(),
+                MvpApp.get(this).getCurUser().getUid());
     }
 }
 

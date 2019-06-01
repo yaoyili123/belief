@@ -160,4 +160,30 @@ public class SportPresenter<V extends SportMvpView> extends BasePresenter<V>
                     getMvpView().handleApiError(e);
                 }));
     }
+
+    @Override
+    public void addClassToUser(int scid, int uid) {
+        getCompositeDisposable().add(getDataManager().addClassToUser(uid, scid)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe((map) -> {
+
+                        }, (throwable) -> {
+                            throwable.printStackTrace();
+                        }
+                ));
+    }
+
+    @Override
+    public void settleKcal(int uid, int kcal, int time) {
+        getCompositeDisposable().add(getDataManager().settleKcal(uid, kcal, time)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe((map) -> {
+
+                        }, (throwable) -> {
+                            throwable.printStackTrace();
+                        }
+                ));
+    }
 }

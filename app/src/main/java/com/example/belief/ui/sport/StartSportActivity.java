@@ -3,13 +3,18 @@ package com.example.belief.ui.sport;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemClock;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
+import com.example.belief.MvpApp;
 import com.example.belief.R;
 import com.example.belief.data.network.model.SportAction;
 import com.example.belief.ui.base.BaseActivity;
+import com.example.belief.utils.ToastUtils;
+import com.example.belief.utils.UIUtils;
+import com.flyco.dialog.widget.NormalDialog;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,9 +35,14 @@ public class StartSportActivity extends BaseActivity implements SportMvpView {
     @Inject
     public SportMvpPresenter<SportMvpView> sportMvpPresenter;
 
-    public Map<String, GifDrawable> actionImgs = new HashMap();
+    @BindView(R.id.task_next)
+    public Button TaskNext;
 
-    public List<SportAction> actionList;
+    @BindView(R.id.task_start)
+    public Button TaskStart;
+
+    @BindView(R.id.task_privous)
+    public Button TaskPrivous;
 
     @BindView(R.id.action_image)
     public GifImageView curImg;
@@ -46,20 +56,21 @@ public class StartSportActivity extends BaseActivity implements SportMvpView {
     @BindView(R.id.chronometer)
     public Chronometer mChronometer;
 
-    public long sumTime = 0;
+    private NormalDialog mDialog;
 
-    public SportAction curAction;
+    //数据管理
+    public Map<String, GifDrawable> actionImgs = new HashMap();
 
-    @BindView(R.id.task_next)
-    public Button TaskNext;
+    public List<SportAction> actionList;
 
-    @BindView(R.id.task_start)
-    public Button TaskStart;
+    private int kcal;
 
-    @BindView(R.id.task_privous)
-    public Button TaskPrivous;
+    //任务控制
+    private SportAction curAction;
 
-//    public Timestamp startTime;
+    private int curTaskOrder = 1;
+
+    private long sumTime = 0;
 
     public TaskState taskState = TaskState.NOTSTARTED;
 
@@ -78,37 +89,75 @@ public class StartSportActivity extends BaseActivity implements SportMvpView {
     }
 
     @Override
-    protected void onDestroy() {
-        sportMvpPresenter.onDetach();
-        super.onDestroy();
-    }
-
-    @Override
     protected void setUp() {
         int scid  = getIntent().getIntExtra("scid", 0);
+        kcal  = getIntent().getIntExtra("kcal", 0);
         mChronometer.setText("00:00");
         mChronometer.setOnChronometerTickListener(chronometer -> {
         });
         sportMvpPresenter.getSportActions(scid);
     }
 
+    @OnClick(R.id.task_privous)
+    public void privousTask() {
+        if (curTaskOrder == 1) {
+            onError("已经是最开始任务");
+            return;
+        }
+        sumUpTime();
+        mChronometer.stop();
+        mChronometer.setText("00:00");
+        curAction = actionList.get((curTaskOrder-- - 2));
+        Log.d("privousTask", "curTaskOrder: " + curTaskOrder);
+        switchView(curAction);
+        taskState = TaskState.NOTSTARTED;
+        TaskStart.setBackground(getResources().getDrawable(R.drawable.ic_g_start));
+    }
+
     @OnClick(R.id.task_next)
     public void nextTask() {
-        sumTime =  (SystemClock.elapsedRealtime() - mChronometer.getBase()) / 1000;
+        //动作完成
+        if (curTaskOrder == actionList.size()) {
+            sumUpTime();
+            String result = new String("运动总时间："+ sumTime + "秒\n"
+                    + "消耗卡路里："+ kcal + " 千卡\n"
+                    + "是否结束运动?");
+            NormalDialog mDialog = UIUtils.getNormalDialog(result, this);
+            mDialog.setOnBtnClickL(() -> { mDialog.dismiss(); }, () -> {
+                sportMvpPresenter.settleKcal(MvpApp.get(this).getCurUser().getUid(),
+                        kcal, (int)sumTime);
+                finish();
+            });
+            mDialog.show();
+            return;
+        }
+        sumUpTime();
+        mChronometer.stop();
+        mChronometer.setText("00:00");
+        curAction = actionList.get(curTaskOrder++);
+        switchView(curAction);
+        taskState = TaskState.NOTSTARTED;
+        TaskStart.setBackground(getResources().getDrawable(R.drawable.ic_g_start));
+    }
 
+    private void switchView(SportAction action) {
+        curImg.setImageDrawable(actionImgs.get(action.getPicUrl()));
+        mName.setText(action.getName());
+        mDetail.setText(action.getDetail());
+    }
+
+    private void sumUpTime() {
+//        curTimeText = mChronometer.getText().toString();
+        if (taskState != TaskState.NOTSTARTED)
+            sumTime +=  (SystemClock.elapsedRealtime() - mChronometer.getBase()) / 1000;
+        ToastUtils.showToast("总时间" + sumTime);
     }
 
     @OnClick(R.id.task_start)
     public void startTask() {
         switch (taskState) {
-            case NOTSTARTED:{
+            case NOTSTARTED: case STOP:{
                 mChronometer.setBase(SystemClock.elapsedRealtime());
-                mChronometer.start();
-                TaskStart.setBackground(getResources().getDrawable(R.drawable.ic_stop));
-                taskState = TaskState.STARTED;
-            }
-
-            case STOP: {
                 mChronometer.start();
                 TaskStart.setBackground(getResources().getDrawable(R.drawable.ic_stop));
                 taskState = TaskState.STARTED;
@@ -116,17 +165,15 @@ public class StartSportActivity extends BaseActivity implements SportMvpView {
             }
             case STARTED:{
                 mChronometer.stop();
+                sumUpTime();
                 taskState = TaskState.STOP;
                 TaskStart.setBackground(getResources().getDrawable(R.drawable.ic_g_start));
+                break;
             }
             default:break;
         }
     }
 
-    @OnClick(R.id.task_privous)
-    public void privousTask() {
-
-    }
 
     public void setData(List<SportAction> list) {
         actionList = list;
@@ -154,5 +201,11 @@ public class StartSportActivity extends BaseActivity implements SportMvpView {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        sportMvpPresenter.onDetach();
+        super.onDestroy();
     }
 }

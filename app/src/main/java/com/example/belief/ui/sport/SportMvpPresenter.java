@@ -25,5 +25,9 @@ public interface SportMvpPresenter<V extends MvpView> extends MvpPresenter<V> {
 
     void getSportActions(int scid);
 
+    void addClassToUser(int scid, int uid);
+
     void downPicGIF(String url);
+
+    void settleKcal(int uid, int kcal, int time);
 }
