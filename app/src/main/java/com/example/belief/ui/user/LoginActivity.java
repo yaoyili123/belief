@@ -103,4 +103,9 @@ public class LoginActivity extends BaseActivity
         startActivity(intent);
         finish();
     }
+
+    @Override
+    public void setData(Object obj) {
+
+    }
 }

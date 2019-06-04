@@ -16,4 +16,10 @@ public interface MvpPresenter <V extends MvpView> {
 
     //下载图片
     void downPic(String url, ImageView imageView);
+
+    void downPicToCircle(String url, ImageView imageView);
+
+    //上传图片
+    //下载图片
+    void uploadPic(ImageView imageView, String filename);
 }

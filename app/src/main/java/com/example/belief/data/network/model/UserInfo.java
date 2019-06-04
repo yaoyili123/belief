@@ -1,28 +1,37 @@
 package com.example.belief.data.network.model;
 
-import java.sql.Date;
-
 public class UserInfo {
 
     private Integer uid;
 
     private String name;
 
-    private Date bothday;
+    private String bothday;
 
     private String city;
+
+    private String sex;
 
     private String photoUrl;
 
     public UserInfo() {
     }
 
-    public UserInfo(Integer uid, String name, Date bothday, String city, String photoUrl) {
+    public UserInfo(Integer uid, String name, String sex, String bothday, String city, String photoUrl) {
         this.uid = uid;
         this.name = name;
+        this.sex = sex;
         this.bothday = bothday;
         this.city = city;
         this.photoUrl = photoUrl;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public Integer getUid() {
@@ -41,11 +50,11 @@ public class UserInfo {
         this.name = name;
     }
 
-    public Date getBothday() {
+    public String getBothday() {
         return bothday;
     }
 
-    public void setBothday(Date bothday) {
+    public void setBothday(String bothday) {
         this.bothday = bothday;
     }
 

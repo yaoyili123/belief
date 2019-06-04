@@ -44,10 +44,11 @@
         android:gravity="center_vertical"
         >
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
+            android:id="@+id/share_detail_head"
             android:background="@color/icon_gray"/>
 
         <LinearLayout
@@ -59,6 +60,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/share_detail_name"
                 android:text="李老师"
                 />
 
@@ -78,6 +80,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/share_detail_content"
             android:text="三八妇女节已经过去了，离项目原型汇报的日子还会远吗？业务发展部李经理提醒各个项目小组，3月14日各个小组安排1-2位主讲进行项目原型汇
 报，要求：1、每组汇报时间为5分钟，其他小组及需求方提问5分钟（现场安排计时）；2、展示嘎达嘎达获得较佳啊的"/>
     </LinearLayout>
@@ -91,6 +94,7 @@
         <ImageView
             android:layout_width="250dp"
             android:background="@color/icon_gray"
+            android:id="@+id/share_detail_img"
             android:layout_height="250dp" />
 
     </LinearLayout>

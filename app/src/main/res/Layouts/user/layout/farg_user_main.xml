@@ -22,6 +22,7 @@
                 android:layout_height="80dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="50dp"
+                android:id="@+id/user_main_head"
                 android:src="@drawable/sport_drill" />
 
             <LinearLayout
@@ -36,6 +37,7 @@
                     android:layout_marginLeft="40dp"
                     android:layout_marginTop="55dp"
                     android:textColor="@color/white"
+                    android:id="@+id/user_main_name"
                     android:text="人鱼线的pdd" />
 
                 <TextView
@@ -43,8 +45,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
                     android:layout_marginTop="15dp"
-                    android:textColor="@color/white"
-                    android:text="@string/male" />
+                    android:id="@+id/user_main_sex"
+                    android:text="@string/male"
+                    android:textColor="@color/white" />
             </LinearLayout>
 
 
@@ -53,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="70dp"
+                android:id="@+id/bt_update_info"
                 android:background="@drawable/button_edge"
                 android:text="@string/edit"
                 android:textColor="@color/white" />

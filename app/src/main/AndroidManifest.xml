@@ -28,6 +28,9 @@
         <activity android:name=".ui.user.LoginActivity"></activity>
         <activity android:name=".ui.sport.ClassDetailActivity"></activity>
         <activity android:name=".ui.sport.StartSportActivity"></activity>
+        <activity android:name=".ui.user.PersonalinfoActivity"></activity>
+        <activity android:name=".ui.user.UpdateInfoActivity"></activity>
+        <activity android:name=".ui.sport.AddShareActivity"></activity>
     </application>
 
 </manifest>

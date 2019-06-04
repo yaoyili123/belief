@@ -3,6 +3,7 @@ package com.example.belief.ui.user;
 import com.example.belief.data.DataManager;
 import com.example.belief.data.network.model.ApiFault;
 import com.example.belief.data.network.model.UserAuth;
+import com.example.belief.data.network.model.UserInfo;
 import com.example.belief.ui.base.BasePresenter;
 import com.example.belief.utils.rx.SchedulerProvider;
 
@@ -55,6 +56,51 @@ public class UserPresenter<V extends UserMvpView> extends BasePresenter<V>
 
     //注册
     //显示用户个人信息
+    public void getUserInfo(int uid) {
+        getMvpView().showLoading();
+        getCompositeDisposable().add(getDataManager().getUserInfo(uid)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe((data) -> {
+                            //成功逻辑
+                            getMvpView().hideLoading();
+                            getMvpView().setData(data);
+                        }, (throwable) -> {
+                            throwable.printStackTrace();
+                            //失败逻辑
+                            getMvpView().hideLoading();
+                            if (throwable instanceof ApiFault) {
+                                ApiFault fault = (ApiFault) throwable;
+                                getMvpView().onError(fault.getMessage());
+                                return;
+                            }
+                            getMvpView().handleApiError(throwable);
+                        }
+                ));
+    }
+
+    public void updateUserInfo(UserInfo info) {
+        getMvpView().showLoading();
+        getCompositeDisposable().add(getDataManager().updateUserInfo(info)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe((data) -> {
+                        //成功逻辑
+                        getMvpView().hideLoading();
+                        getMvpView().onError("修改成功");
+                    }, (throwable) -> {
+                        //失败逻辑
+                        getMvpView().hideLoading();
+                        if (throwable instanceof ApiFault) {
+                            ApiFault fault = (ApiFault)throwable;
+                            getMvpView().onError(fault.getMessage());
+                            return;
+                        }
+                        getMvpView().handleApiError(throwable);
+                    }
+                ));
+    }
+
     //修改个人信息
     //显示卡路里趋势
     //显示用户收藏的食谱

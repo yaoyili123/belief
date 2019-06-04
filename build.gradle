@@ -13,6 +13,7 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url "https://jitpack.io" }
         google()
         jcenter()
     }
@@ -33,7 +34,7 @@ ext {
     supportLibraryVersion = '26.1.0'
     gsonVersion = '2.8.0'
     calligraphyVersion = '2.2.0'
-    glideVersion = '3.7.0'
+    glideVersion = '4.7.1'
 
     dagger2Version = '2.8'
     rxjava2Version = '2.0.6'

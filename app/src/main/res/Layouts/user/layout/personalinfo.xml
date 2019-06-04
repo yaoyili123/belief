@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PersonalinfoActivity"
+    android:orientation="vertical">
+
+
+    <!--复用TOOLBar-->
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/top_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="@color/theme_color_deep"
+        app:title="编辑资料"
+        app:titleTextColor="@color/white"
+        app:titleMarginStart="150dp">
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <!--更换头像-->
+    <LinearLayout
+        android:id="@+id/imageChangePage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:textSize="18sp"
+            android:text="头像"/>
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_marginLeft="160dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:tag="实线"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/line_solid" />
+
+    <!--更换昵称-->
+    <LinearLayout
+        android:id="@+id/nameChangePage"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:textSize="17sp"
+            android:text="昵称"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="175dp"
+            android:textSize="17sp"
+            android:text="更换头像"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:tag="实线"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/line_solid" />
+
+    <!--更换性别-->
+    <LinearLayout
+        android:id="@+id/sexChangePage"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:textSize="17sp"
+            android:text="性别"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="175dp"
+            android:id="@+id/sex"
+            android:textSize="17sp"
+            android:text="未确定"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:tag="实线"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/line_solid" />
+
+      <!--更换生日-->
+    <LinearLayout
+        android:id="@+id/birthChangePage"
+        android:onClick="onYearMonthDayPicker"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:textSize="17sp"
+            android:text="生日"/>
+
+        <TextView
+            android:id="@+id/birth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:textSize="17sp"
+            android:text="1111.11.11"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:tag="实线"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/line_solid" />
+
+    <!--更换城市-->
+    <LinearLayout
+        android:id="@+id/cityChangePage"
+        android:onClick="onAddress3Picker"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:textSize="17sp"
+            android:text="城市"/>
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="175dp"
+            android:textSize="17sp"
+            android:text="银河,地球"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:tag="实线"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/line_solid" />
+
+    <Button
+        android:id="@+id/bt_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="保存" />
+
+
+</LinearLayout>

@@ -12,7 +12,6 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -37,8 +36,8 @@ import me.yokeyword.fragmentation.SupportFragment;
 * */
 public class MainActivity extends BaseActivity {
 
-    @BindView(R.id.top_toolbar)
-    public Toolbar mTitle;
+//    @BindView(R.id.top_toolbar)
+//    public Toolbar mTitle;
 
     @BindView(R.id.buttom_nav_view)
     public BottomNavigationView bnv;
@@ -85,19 +84,19 @@ public class MainActivity extends BaseActivity {
             mi = item;
             switch (item.getItemId()) {
                 case R.id.bn_sport: {
-                    mTitle.setTitle(R.string.top_title_sport);
+//                    mTitle.setTitle(R.string.top_title_sport);
                     showHideFragment(mFragments[0], mFragments[prePos]);
                     prePos = 0;
                     return true;
                 }
                 case R.id.bn_recipe: {
-                    mTitle.setTitle(R.string.top_title_recipe);
+//                    mTitle.setTitle(R.string.top_title_recipe);
                     showHideFragment(mFragments[1], mFragments[prePos]);
                     prePos = 1;
                     return true;
                 }
                 case R.id.bn_comm: {
-                    mTitle.setTitle(R.string.top_title_comm);
+//                    mTitle.setTitle(R.string.top_title_comm);
                     showHideFragment(mFragments[2], mFragments[prePos]);
                     prePos = 2;
                     return true;
@@ -107,7 +106,7 @@ public class MainActivity extends BaseActivity {
                         MainActivity.this.startActivity(LoginActivity.getStartIntent(MainActivity.this));
                         return false;
                     }
-                    mTitle.setTitle(R.string.top_title_user);
+//                    mTitle.setTitle(R.string.top_title_user);
                     showHideFragment(mFragments[3], mFragments[prePos]);
                     prePos = 3;
                     return true;

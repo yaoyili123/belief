@@ -2,12 +2,16 @@ package com.example.belief.di.component;
 
 import com.example.belief.di.PerActivity;
 import com.example.belief.di.module.ActivityModule;
+import com.example.belief.ui.comm.CommDetailActivity;
 import com.example.belief.ui.comm.CommMainFragment;
+import com.example.belief.ui.sport.AddShareActivity;
 import com.example.belief.ui.sport.ClassDetailActivity;
 import com.example.belief.ui.sport.ShowClassActivity;
 import com.example.belief.ui.sport.SportMainFragment;
 import com.example.belief.ui.sport.StartSportActivity;
 import com.example.belief.ui.user.LoginActivity;
+import com.example.belief.ui.user.PersonalinfoActivity;
+import com.example.belief.ui.user.UserMainFragment;
 
 import dagger.Component;
 
@@ -58,4 +62,12 @@ public interface ActivityComponent {
     void inject(StartSportActivity activity);
 
     void inject(CommMainFragment fragment);
+
+    void inject(PersonalinfoActivity activity);
+
+    void inject(UserMainFragment fragment);
+
+    void inject(CommDetailActivity activity);
+
+    void inject(AddShareActivity activity);
 }

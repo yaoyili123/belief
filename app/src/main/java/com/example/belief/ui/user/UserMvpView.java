@@ -8,4 +8,5 @@ public interface UserMvpView extends MvpView {
 
     void openMainActivity(Map args);
 
+    void setData(Object obj);
 }

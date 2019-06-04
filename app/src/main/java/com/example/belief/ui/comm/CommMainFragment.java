@@ -1,9 +1,11 @@
 package com.example.belief.ui.comm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import com.example.belief.R;
 import com.example.belief.data.network.model.ShareInfoResponse;
 import com.example.belief.di.component.ActivityComponent;
 import com.example.belief.ui.base.BaseFragment;
+import com.example.belief.ui.sport.AddShareActivity;
 
 import java.util.List;
 
@@ -21,6 +24,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 //TODO: 拍照分享做成悬浮按钮
 public class CommMainFragment extends BaseFragment implements CommMvpView {
@@ -56,8 +60,16 @@ public class CommMainFragment extends BaseFragment implements CommMvpView {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("MyLog", "UserMainFragment onResume()");
+        commMvpPresenter.getCommListData();
+    }
+
+    @Override
     protected void setUp(View view) {
         commMvpPresenter.getCommListData();
+
         adapter = new CommListAdapter();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
@@ -89,6 +101,11 @@ public class CommMainFragment extends BaseFragment implements CommMvpView {
             commMvpPresenter.downPic(item.getHeadUrl(), holder.head);
             holder.mTitle.setText(item.getTitle());
             holder.mAuthor.setText(item.getAuthor());
+            holder.mImg.setOnClickListener(view -> {
+                Intent intent = new Intent(getContext(), CommDetailActivity.class);
+                intent.putExtra("sid", shareInfoResponseList.get(position).getSid());
+                getActivity().startActivity(intent);
+            });
         }
 
         @Override
@@ -113,5 +130,17 @@ public class CommMainFragment extends BaseFragment implements CommMvpView {
                 mAuthor = (TextView) itemView.findViewById(R.id.share_author);
             }
         }
+    }
+
+    @OnClick(R.id.bt_addShare)
+    public void toAddShare() {
+        Intent intent=new Intent(getContext(), AddShareActivity.class);
+        getActivity().startActivity(intent);
+    }
+
+
+    @Override
+    public void Back() {
+
     }
 }

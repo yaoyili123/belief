@@ -1,5 +1,6 @@
 package com.example.belief.ui.user;
 
+import com.example.belief.data.network.model.UserInfo;
 import com.example.belief.ui.base.MvpPresenter;
 import com.example.belief.ui.base.MvpView;
 
@@ -7,4 +8,8 @@ import com.example.belief.ui.base.MvpView;
 public interface UserMvpPresenter<V extends MvpView> extends MvpPresenter<V> {
 
     void login(String username, String password);
+
+    void getUserInfo(int uid);
+
+    void updateUserInfo(UserInfo userInfo);
 }

@@ -3,25 +3,25 @@ package com.example.belief.utils;
 import android.os.Environment;
 
 import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 
 public class FileUtils {
 
-    public static String readTextFromSDcard(InputStream is) throws Exception {
-        InputStreamReader reader = new InputStreamReader(is);
-        BufferedReader bufferedReader = new BufferedReader(reader);
-        StringBuffer buffer = new StringBuffer("");
-        String str;
-        while ((str = bufferedReader.readLine()) != null) {
-            buffer.append(str);
-            buffer.append("\n");
-        }
-        return buffer.toString();
+    public static InputStream readFromSDcard(String fileName) throws Exception{
+        File file = new File(Environment.getExternalStorageDirectory().getAbsoluteFile(),
+                fileName);
+        InputStream is = new FileInputStream(file);
+        return is;
+    }
+
+    public static File openFile( String fileName) {
+        File file = new File(Environment.getExternalStorageDirectory().getAbsoluteFile(),
+                fileName);
+        return file;
     }
 
     public static void createFileWithByte(byte[] bytes, String fileName) {

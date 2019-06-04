@@ -18,12 +18,15 @@ import java.util.Map;
 
 import io.reactivex.Observable;
 import io.reactivex.Single;
+import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Streaming;
 import retrofit2.http.Url;
@@ -36,7 +39,12 @@ public interface ApiHelper {
     //下载图片
     @Streaming
     @GET
-    Observable<ResponseBody> downPic(@Url String fileUrl);
+    Single<ResponseBody> downPic(@Url String fileUrl);
+
+    //上传图片并更新
+    @Multipart
+    @POST("uploadFile")
+    Observable<ResponseWrapper<Map>> UploadFile(@Part MultipartBody.Part image);
 
     @GET("sport/actions/{scid}")
     Observable<ResponseWrapper<List<SportAction>>> getSportActions(@Path("scid") int scid);
@@ -72,7 +80,7 @@ public interface ApiHelper {
     @GET("user/sport_info/{uid}")
     Observable<ResponseWrapper<List<UserSportInfo>>> getSportInfo(@Path("uid") int uid);
 
-    @PUT("user/user_info")
+    @PUT("user/user_info/update")
     Single<ResponseWrapper<Map>> updateUserInfo(@Body UserInfo userInfo);
 
     @GET("user/user_info/{uid}")
@@ -84,6 +92,9 @@ public interface ApiHelper {
 
     @GET("comm/share_list")
     Observable<ResponseWrapper<List<ShareInfoResponse>>> getShareList();
+
+    @GET("comm/share_detail/{sid}")
+    Observable<ResponseWrapper<ShareInfoResponse>> getShareDetail(@Path("sid") Integer sid);
 
     @POST("comm/share")
     Single<ResponseWrapper<Map>> publishShare(@Body RequestShare share);

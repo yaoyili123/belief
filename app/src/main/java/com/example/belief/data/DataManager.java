@@ -1,6 +1,7 @@
 package com.example.belief.data;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.belief.data.network.ApiHelper;
 import com.example.belief.data.network.model.ApiFault;
@@ -27,6 +28,8 @@ import javax.inject.Singleton;
 
 import io.reactivex.Observable;
 import io.reactivex.Single;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.http.Path;
 
@@ -66,7 +69,15 @@ public class DataManager {
         });
     }
 
-    public Observable<ResponseBody>  downPic(String fileName) {
+    public Observable<Map> UploadFile(RequestBody image, String filename) {
+        Log.d("MyLog", "文件名:"+ filename);
+        MultipartBody.Part body =
+                MultipartBody.Part.createFormData("file", filename, image);
+
+        return payLoad(mApiHelper.UploadFile(body));
+    }
+
+    public Single<ResponseBody>  downPic(String fileName) {
         return mApiHelper.downPic(RetrofitServiceManager.BASE_URL + "/" + fileName);
     }
 
@@ -134,6 +145,10 @@ public class DataManager {
     public Observable<List<ShareInfoResponse>> getShareList(){
 
         return payLoad(mApiHelper.getShareList());
+    }
+
+    public Observable<ShareInfoResponse> getShareDetail(int sid) {
+        return payLoad(mApiHelper.getShareDetail(sid));
     }
 
     public Single<Map> publishShare(RequestShare share){
