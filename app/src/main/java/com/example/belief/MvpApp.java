@@ -42,6 +42,10 @@ public class MvpApp extends Application {
 
     public Map<Integer, String> classLevel;
 
+    public Map<Integer, String> foodType;
+
+    public Map<Integer, String> recipeType;
+
     //用于提供自己实例对象的静态方法
     public static MvpApp get(Context context) {
         return (MvpApp) context.getApplicationContext();
@@ -49,7 +53,7 @@ public class MvpApp extends Application {
 
     @Override
     public void onCreate() {
-        curUser = new UserAuth(1, "yaoyili", "123456");
+//        curUser = new UserAuth(1, "yaoyili", "123456");
         super.onCreate();
         applicationComponent = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this)).build();
@@ -110,6 +114,8 @@ public class MvpApp extends Application {
     private void initConst() {
         classType = new HashMap<>();
         classLevel = new HashMap<>();
+        foodType = new HashMap<>();
+        recipeType = new HashMap<>();
 
         classLevel.put(0, "初级");
         classLevel.put(1, "中级");
@@ -119,5 +125,13 @@ public class MvpApp extends Application {
         classType.put(1, "核心");
         classType.put(2, "上肢");
         classType.put(3, "基础");
+
+        foodType.put(1, "碳水化合物");
+        foodType.put(2, "蛋白质");
+        foodType.put(3, "维生素");
+
+        recipeType.put(1, "早餐");
+        recipeType.put(2, "午餐");
+        recipeType.put(3, "晚餐");
     }
 }

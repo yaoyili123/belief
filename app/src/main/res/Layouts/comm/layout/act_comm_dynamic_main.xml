@@ -13,28 +13,22 @@
         android:gravity="center_vertical"
         android:background="@color/theme_color_shallow">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:scaleX="0.6"
-            android:scaleY="0.6"
-            android:src="@drawable/ic_g_left"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dynamic_details"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:layout_marginLeft="20dp" />
+            android:layout_marginLeft="120dp" />
 
         <ImageView
             android:layout_width="35dp"
             android:layout_height="31dp"
             android:layout_marginLeft="150dp"
-            android:src="@drawable/ic_share_white" />
+            android:src="@drawable/ic_share_white"
+            android:id="@+id/bt_share_outside"/>
 
     </LinearLayout>
 
@@ -44,12 +38,11 @@
         android:gravity="center_vertical"
         >
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
-            android:id="@+id/share_detail_head"
-            android:background="@color/icon_gray"/>
+            android:id="@+id/share_detail_head" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -93,7 +86,6 @@
 
         <ImageView
             android:layout_width="250dp"
-            android:background="@color/icon_gray"
             android:id="@+id/share_detail_img"
             android:layout_height="250dp" />
 

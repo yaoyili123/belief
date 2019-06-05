@@ -30,7 +30,13 @@
         <activity android:name=".ui.sport.StartSportActivity"></activity>
         <activity android:name=".ui.user.PersonalinfoActivity"></activity>
         <activity android:name=".ui.user.UpdateInfoActivity"></activity>
-        <activity android:name=".ui.sport.AddShareActivity"></activity>
+        <activity android:name=".ui.comm.AddShareActivity"></activity>
+        <activity android:name=".ui.user.RegisterActivity"></activity>
+        <activity android:name=".ui.recipe.RecipeDetailActivity"></activity>
+        <activity android:name=".ui.recipe.RecipeTypeActivity"></activity>
+        <activity android:name=".ui.recipe.RecipeListActivity"></activity>
+        <activity android:name=".ui.recipe.FoodListActivity"></activity>
+        <activity android:name=".ui.recipe.FoodDetailActivity"></activity>
     </application>
 
 </manifest>

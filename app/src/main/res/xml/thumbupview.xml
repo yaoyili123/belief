@@ -1,0 +1,10 @@
+<com.ldoublem.thumbUplib.ThumbUpView
+    android:id="@+id/tpv"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    app:cracksColor="#708090"
+    app:edgeColor="#9d55b8"
+    app:fillColor="#ea8010"
+    app:unlikeType="0"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -2,6 +2,8 @@ package com.example.belief.data.network;
 
 import com.example.belief.data.network.model.Food;
 import com.example.belief.data.network.model.Recipe;
+import com.example.belief.data.network.model.RecipeAtCollect;
+import com.example.belief.data.network.model.RecipeDetail;
 import com.example.belief.data.network.model.RecipeType;
 import com.example.belief.data.network.model.RequestShare;
 import com.example.belief.data.network.model.ResponseWrapper;
@@ -78,7 +80,7 @@ public interface ApiHelper {
     Single<ResponseWrapper<Map<String, Object>>> register(@Body UserAuth userAuth);
 
     @GET("user/sport_info/{uid}")
-    Observable<ResponseWrapper<List<UserSportInfo>>> getSportInfo(@Path("uid") int uid);
+    Observable<ResponseWrapper<UserSportInfo>> getSportInfo(@Path("uid") int uid);
 
     @PUT("user/user_info/update")
     Single<ResponseWrapper<Map>> updateUserInfo(@Body UserInfo userInfo);
@@ -108,12 +110,21 @@ public interface ApiHelper {
     @DELETE("recipe/collects/{uid}/{rid}")
     Single<ResponseWrapper<Map>> deleteRecipe(@Path("uid")int uid, @Path("rid")int rid);
 
-    @GET("recipe/food")
+    @GET("recipe/foods")
     Observable<ResponseWrapper<List<Food>>> getFoods();
+
+    @GET("recipe/food/{fid}")
+    Observable<ResponseWrapper<Food>> getFoodDetail(@Path("fid")int fid);
+
+    @GET("recipe/foods/{tid}")
+    Observable<ResponseWrapper<List<Food>>> getFoodsByType(@Path("tid")int tid);
 
     @GET("recipe/type")
     Observable<ResponseWrapper<List<RecipeType>>> getRecipeType();
 
-    @GET("recipe/{tid}")
-    Observable<ResponseWrapper<List<Recipe>>> getRecipesByType(@Path("tid")int tid);
+    @GET("recipe/{tid}/{uid}")
+    Observable<ResponseWrapper<List<RecipeAtCollect>>> getRecipesByType(@Path("tid")int tid, @Path("uid")int uid );
+
+    @GET("recipe/detail/{rid}")
+    Observable<ResponseWrapper<RecipeDetail>> getRecipeDetail(@Path("rid")int rid);
 }

@@ -17,13 +17,11 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.belief.MvpApp;
 import com.example.belief.R;
 import com.example.belief.ui.base.BaseActivity;
 import com.example.belief.ui.comm.CommMainFragment;
 import com.example.belief.ui.recipe.RecipeMainFragment;
 import com.example.belief.ui.sport.SportMainFragment;
-import com.example.belief.ui.user.LoginActivity;
 import com.example.belief.ui.user.UserMainFragment;
 import com.example.belief.utils.BNVEffect;
 
@@ -102,10 +100,10 @@ public class MainActivity extends BaseActivity {
                     return true;
                 }
                 case R.id.bn_user:{
-                    if (!MvpApp.get(MainActivity.this).isLogined(MainActivity.this)) {
-                        MainActivity.this.startActivity(LoginActivity.getStartIntent(MainActivity.this));
-                        return false;
-                    }
+//                    if (!MvpApp.get(MainActivity.this).isLogined(MainActivity.this)) {
+//                        MainActivity.this.startActivity(LoginActivity.getStartIntent(MainActivity.this));
+//                        return false;
+//                    }
 //                    mTitle.setTitle(R.string.top_title_user);
                     showHideFragment(mFragments[3], mFragments[prePos]);
                     prePos = 3;

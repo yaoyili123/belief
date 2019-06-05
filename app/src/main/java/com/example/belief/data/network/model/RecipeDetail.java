@@ -1,6 +1,8 @@
 package com.example.belief.data.network.model;
+import java.util.Map;
 
-public class Recipe {
+public class RecipeDetail {
+
     private Integer rid;
 
     private Integer tid;
@@ -9,17 +11,11 @@ public class Recipe {
 
     private String photoUrl;
 
-    private String ingredient;
-
     private String detail;
 
-    public String getDetail() {
-        return detail;
-    }
+    private Map<String, String> ingredient;
 
-    public void setDetail(String detail) {
-        this.detail = detail;
-    }
+    private Map<String, Integer> nutritions;
 
     public Integer getRid() {
         return rid;
@@ -53,11 +49,27 @@ public class Recipe {
         this.photoUrl = photoUrl;
     }
 
-    public String getIngredient() {
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public Map<String, String> getIngredient() {
         return ingredient;
     }
 
-    public void setIngredient(String ingredient) {
+    public void setIngredient(Map<String, String> ingredient) {
         this.ingredient = ingredient;
+    }
+
+    public Map<String, Integer> getNutritions() {
+        return nutritions;
+    }
+
+    public void setNutritions(Map<String, Integer> nutritions) {
+        this.nutritions = nutritions;
     }
 }

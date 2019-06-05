@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--复用TOOLBar-->
+        <android.support.v7.widget.Toolbar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:id="@+id/recipe_title"
+            android:layout_height="65dp"
+            android:background="@color/theme_color_deep"
+            app:title="食谱详情"
+            app:titleTextColor="@color/white"
+            app:titleMarginStart="150dp">
+        </android.support.v7.widget.Toolbar>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/recipe_d_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="283dp"
+                android:scaleX="1.6"
+                android:scaleY="1.3"
+                android:src="@drawable/health_food_1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/recipe_d_name"
+                android:text="@string/health_foodname"
+                android:textSize="30sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/recipe_d_detail"
+                android:text="含有少量蛋白，淀粉，矿物质"/>
+
+        </LinearLayout>
+
+        <!--营养价值-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:tag="实线"
+            android:layout_marginTop="15dp"
+            android:background="@color/font_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="225"
+                    android:id="@+id/recipe_d_kcal"
+                    android:textSize="30sp">
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_kcal"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="225"
+                    android:id="@+id/recipe_d_ts"
+                    android:textSize="30sp">
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_cw"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="225"
+                    android:id="@+id/recipe_d_dbz"
+                    android:textSize="30sp">
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_pro"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="225"
+                    android:id="@+id/recipe_d_fat"
+                    android:textSize="30sp">
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_fat"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"></TextView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <!--食材-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="食材"
+                android:textSize="20sp"
+                android:layout_marginLeft="30dp"></TextView>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/lv_2"
+                android:layout_width="match_parent"
+                android:layout_height="350dp">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+
+            <!--<View-->
+            <!--android:layout_width="350dp"-->
+            <!--android:layout_height="2dp"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:tag="实线"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:background="@color/font_gray" />-->
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

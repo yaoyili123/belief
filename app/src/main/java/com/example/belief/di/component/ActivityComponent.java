@@ -2,15 +2,21 @@ package com.example.belief.di.component;
 
 import com.example.belief.di.PerActivity;
 import com.example.belief.di.module.ActivityModule;
+import com.example.belief.ui.comm.AddShareActivity;
 import com.example.belief.ui.comm.CommDetailActivity;
 import com.example.belief.ui.comm.CommMainFragment;
-import com.example.belief.ui.sport.AddShareActivity;
+import com.example.belief.ui.recipe.FoodDetailActivity;
+import com.example.belief.ui.recipe.FoodListActivity;
+import com.example.belief.ui.recipe.RecipeDetailActivity;
+import com.example.belief.ui.recipe.RecipeListActivity;
+import com.example.belief.ui.recipe.RecipeTypeActivity;
 import com.example.belief.ui.sport.ClassDetailActivity;
 import com.example.belief.ui.sport.ShowClassActivity;
 import com.example.belief.ui.sport.SportMainFragment;
 import com.example.belief.ui.sport.StartSportActivity;
 import com.example.belief.ui.user.LoginActivity;
 import com.example.belief.ui.user.PersonalinfoActivity;
+import com.example.belief.ui.user.RegisterActivity;
 import com.example.belief.ui.user.UserMainFragment;
 
 import dagger.Component;
@@ -70,4 +76,17 @@ public interface ActivityComponent {
     void inject(CommDetailActivity activity);
 
     void inject(AddShareActivity activity);
+
+    void inject(RegisterActivity activity);
+
+    void inject(RecipeTypeActivity activity);
+
+    void inject(RecipeListActivity activity);
+
+    void inject(RecipeDetailActivity activity);
+
+    void inject(FoodListActivity activity);
+
+    void inject(FoodDetailActivity activity);
+
 }

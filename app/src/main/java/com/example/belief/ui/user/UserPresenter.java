@@ -54,6 +54,36 @@ public class UserPresenter<V extends UserMvpView> extends BasePresenter<V>
                 ));
     }
 
+    @Override
+    public void register(String username, String password) {
+        getMvpView().showLoading();
+        getCompositeDisposable().add(getDataManager().register(new UserAuth(username, password))
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe((map) -> {
+                            //成功逻辑
+                            getMvpView().hideLoading();
+                            getMvpView().showMessage("注册成功");
+                            int uid = ((Number) map.get("uid")).intValue();
+                            UserAuth userAuth = new UserAuth(uid, username, password);
+                            Map args = new HashMap<String, Object>();
+                            args.put("userAuth", userAuth);
+                            getMvpView().openMainActivity(args);
+
+                        }, (throwable) -> {
+                            //失败逻辑
+                            getMvpView().hideLoading();
+                            if (throwable instanceof ApiFault) {
+                                ApiFault fault = (ApiFault)throwable;
+                                getMvpView().onError(fault.getMessage());
+                                return;
+                            }
+                            getMvpView().handleApiError(throwable);
+                        }
+                ));
+    }
+
+
     //注册
     //显示用户个人信息
     public void getUserInfo(int uid) {
@@ -98,6 +128,30 @@ public class UserPresenter<V extends UserMvpView> extends BasePresenter<V>
                         }
                         getMvpView().handleApiError(throwable);
                     }
+                ));
+    }
+
+    @Override
+    public void getSportInfo(int uid) {
+        getMvpView().showLoading();
+        getCompositeDisposable().add(getDataManager().getSportInfo(uid)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe((data) -> {
+                            //成功逻辑
+                            getMvpView().hideLoading();
+                    ((UserMainFragment)getMvpView()).setSportInfo(data);
+                        }, (throwable) -> {
+                            throwable.printStackTrace();
+                            //失败逻辑
+                            getMvpView().hideLoading();
+                            if (throwable instanceof ApiFault) {
+                                ApiFault fault = (ApiFault) throwable;
+                                getMvpView().onError(fault.getMessage());
+                                return;
+                            }
+                            getMvpView().handleApiError(throwable);
+                        }
                 ));
     }
 

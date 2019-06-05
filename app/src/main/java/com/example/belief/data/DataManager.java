@@ -7,6 +7,8 @@ import com.example.belief.data.network.ApiHelper;
 import com.example.belief.data.network.model.ApiFault;
 import com.example.belief.data.network.model.Food;
 import com.example.belief.data.network.model.Recipe;
+import com.example.belief.data.network.model.RecipeAtCollect;
+import com.example.belief.data.network.model.RecipeDetail;
 import com.example.belief.data.network.model.RecipeType;
 import com.example.belief.data.network.model.RequestShare;
 import com.example.belief.data.network.model.ResponseWrapper;
@@ -31,7 +33,6 @@ import io.reactivex.Single;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
-import retrofit2.http.Path;
 
 /*
 * 作为所有数据访问代码的proxy接口，由P层调用
@@ -123,7 +124,7 @@ public class DataManager {
         return payLoad(mApiHelper.login(userAuth));
     }
 
-    public Observable<List<UserSportInfo>> getSportInfo(int uid){
+    public Observable<UserSportInfo> getSportInfo(int uid){
 
         return payLoad(mApiHelper.getSportInfo(uid));
     }
@@ -174,11 +175,23 @@ public class DataManager {
         return payLoad(mApiHelper.getFoods());
     }
 
+    public Observable<Food> getFoodDetail(int fid) {
+        return payLoad(mApiHelper.getFoodDetail(fid));
+    }
+
+    public Observable<List<Food>> getFoodsByType(int tid) {
+        return payLoad(mApiHelper.getFoodsByType(tid));
+    }
+
     public Observable<List<RecipeType>> getRecipeType() {
         return payLoad(mApiHelper.getRecipeType());
     }
 
-    public Observable<List<Recipe>> getRecipesByType(@Path("tid")int tid) {
-        return payLoad(mApiHelper.getRecipesByType(tid));
+    public Observable<List<RecipeAtCollect>> getRecipesByType(int tid, int uid) {
+        return payLoad(mApiHelper.getRecipesByType(tid, uid));
+    }
+
+    public Observable<RecipeDetail> getRecipeDetail(int rid) {
+        return payLoad(mApiHelper.getRecipeDetail(rid));
     }
 }

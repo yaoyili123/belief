@@ -3,6 +3,8 @@ package com.example.belief.data.network.model;
 public class Food {
     private Integer fid;
 
+    private Integer tid;
+
     private String name;
 
     private String photoUrl;
@@ -12,6 +14,14 @@ public class Food {
     private Integer kcal;
 
     private String ingredient;
+
+    public Integer getTid() {
+        return tid;
+    }
+
+    public void setTid(Integer tid) {
+        this.tid = tid;
+    }
 
     public Integer getFid() {
         return fid;

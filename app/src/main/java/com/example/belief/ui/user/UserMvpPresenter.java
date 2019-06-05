@@ -12,4 +12,8 @@ public interface UserMvpPresenter<V extends MvpView> extends MvpPresenter<V> {
     void getUserInfo(int uid);
 
     void updateUserInfo(UserInfo userInfo);
+
+    void register(String username, String password);
+
+    void getSportInfo(int uid);
 }

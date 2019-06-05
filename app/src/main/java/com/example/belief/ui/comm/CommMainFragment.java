@@ -16,7 +16,6 @@ import com.example.belief.R;
 import com.example.belief.data.network.model.ShareInfoResponse;
 import com.example.belief.di.component.ActivityComponent;
 import com.example.belief.ui.base.BaseFragment;
-import com.example.belief.ui.sport.AddShareActivity;
 
 import java.util.List;
 
@@ -98,7 +97,7 @@ public class CommMainFragment extends BaseFragment implements CommMvpView {
             ShareInfoResponse item = shareInfoResponseList.get(position);
             //下载图片
             commMvpPresenter.downPic(item.getPhotoUrl(), holder.mImg);
-            commMvpPresenter.downPic(item.getHeadUrl(), holder.head);
+            commMvpPresenter.downPicToCircle(item.getHeadUrl(), holder.head);
             holder.mTitle.setText(item.getTitle());
             holder.mAuthor.setText(item.getAuthor());
             holder.mImg.setOnClickListener(view -> {

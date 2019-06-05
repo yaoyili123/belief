@@ -1,4 +1,4 @@
-package com.example.belief.ui.sport;
+package com.example.belief.ui;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,7 +12,7 @@ FragmentPagerAdapter, 将每一个page视为一个fragment, 非常适合维护�
 
 FragmentStatePagerAdapter，适用于较大的页面集合
 * */
-public class SportClassVpAdapter extends FragmentPagerAdapter {
+public class TypeVpAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> fragments;
     private List<String> titles;
@@ -23,12 +23,12 @@ public class SportClassVpAdapter extends FragmentPagerAdapter {
         notifyDataSetChanged();
     }
 
-    public SportClassVpAdapter(FragmentManager fm) {
+    public TypeVpAdapter(FragmentManager fm) {
 
         super(fm);
     }
 
-    public SportClassVpAdapter(List<Fragment> list, List<String> titles, FragmentManager fm) {
+    public TypeVpAdapter(List<Fragment> list, List<String> titles, FragmentManager fm) {
         super(fm);
         this.fragments = list;
         this.titles = titles;

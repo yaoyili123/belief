@@ -63,8 +63,13 @@
     <string name="dinner">晚餐</string>
     <string name="diet_guide">饮食指南</string>
     <string name="classified_recipe">分类菜谱</string>
+    <string name="recipe_list">食谱列表</string>
     <string name="food_library">食物库</string>
-
+    <string name="food_kcal"> Kcal/100g</string>
+    <string name="detail_kcal">千卡</string>
+    <string name="detail_cw">碳水</string>
+    <string name="detail_pro">蛋白质</string>
+    <string name="detail_fat">脂肪</string>
 
     <!--零基础适应性训练-->
     <string name="fat_burning">燃脂</string>

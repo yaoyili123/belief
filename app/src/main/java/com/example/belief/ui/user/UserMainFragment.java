@@ -10,9 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.belief.MvpApp;
 import com.example.belief.R;
 import com.example.belief.data.network.model.UserInfo;
+import com.example.belief.data.network.model.UserSportInfo;
 import com.example.belief.di.component.ActivityComponent;
 import com.example.belief.ui.MainActivity;
 import com.example.belief.ui.base.BaseFragment;
@@ -43,6 +45,15 @@ public class UserMainFragment extends BaseFragment implements UserMvpView{
     @BindView(R.id.user_main_head)
     public ImageView imageView;
 
+    @BindView(R.id.usi_totalTime)
+    public TextView tTotalTime;
+
+    @BindView(R.id.usi_today)
+    public TextView tToday;
+
+    @BindView(R.id.usi_sumkcal)
+    public TextView tSumKcal;
+
     @Inject
     UserMvpPresenter<UserMvpView> userMvpPresenter;
 
@@ -62,6 +73,10 @@ public class UserMainFragment extends BaseFragment implements UserMvpView{
 
     @OnClick(R.id.bt_update_info)
     public void updateInfo() {
+        if (!MvpApp.get(getBaseActivity()).isLogined(getBaseActivity())) {
+            getBaseActivity().startActivity(LoginActivity.getStartIntent(getBaseActivity()));
+            return;
+        }
         Intent intent = new Intent(getBaseActivity(), PersonalinfoActivity.class);
         startActivity(intent);
     }
@@ -83,7 +98,7 @@ public class UserMainFragment extends BaseFragment implements UserMvpView{
     public void onResume() {
         super.onResume();
         Log.d("MyLog", "UserMainFragment onResume()");
-        userMvpPresenter.getUserInfo(MvpApp.get(getContext()).getCurUser().getUid());
+        setUp(null);
     }
 
 //    @Override
@@ -94,7 +109,13 @@ public class UserMainFragment extends BaseFragment implements UserMvpView{
 
     @Override
     protected void setUp(View view) {
-        userMvpPresenter.getUserInfo(MvpApp.get(getContext()).getCurUser().getUid());
+        Glide.with(this).load(R.drawable.unlogined).into(imageView);
+        mName.setText("未登录");
+        mSex.setText("？");
+        if (MvpApp.get(getBaseActivity()).isLogined(getBaseActivity())) {
+            userMvpPresenter.getUserInfo(MvpApp.get(getContext()).getCurUser().getUid());
+            userMvpPresenter.getSportInfo(MvpApp.get(getContext()).getCurUser().getUid());
+        }
     }
 
     @Override
@@ -103,6 +124,12 @@ public class UserMainFragment extends BaseFragment implements UserMvpView{
         userMvpPresenter.downPic(curUser.getPhotoUrl(), imageView);
         mName.setText(curUser.getName());
         mSex.setText(curUser.getSex());
+    }
+
+    public void setSportInfo(UserSportInfo sportInfo) {
+        tTotalTime.setText(sportInfo.getTotalSportTime().toString());
+        tToday.setText(sportInfo.getTodayKcal().toString());
+        tSumKcal.setText(sportInfo.getTotalKcal().toString());
     }
 
     @Override
@@ -122,8 +149,19 @@ public class UserMainFragment extends BaseFragment implements UserMvpView{
 
     @OnClick(R.id.bt_myClass)
     public void toMyClass() {
+        if (!MvpApp.get(getBaseActivity()).isLogined(getBaseActivity())) {
+            getBaseActivity().startActivity(LoginActivity.getStartIntent(getBaseActivity()));
+            return;
+        }
         Intent intent=new Intent(getContext(), ShowClassActivity.class);
         intent.putExtra("business", 1);
         getActivity().startActivity(intent);
+    }
+
+    @OnClick(R.id.bt_exit)
+    public void exit() {
+        MvpApp.get(getContext()).setCurUser(null);
+        startActivity(MainActivity.getStartIntent(getActivity()));
+        getActivity().finish();
     }
 }

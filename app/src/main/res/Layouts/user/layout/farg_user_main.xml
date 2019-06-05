@@ -115,7 +115,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:gravity="center"
-                        android:text="59"/>
+                        android:id="@+id/usi_totalTime"
+                        android:text="\?"/>
                         <!--android:textSize="30sp" -->
 
                 </LinearLayout>
@@ -136,8 +137,9 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:id="@+id/usi_today"
                         android:gravity="center"
-                        android:text="233"/>
+                        android:text="\?"/>
                 </LinearLayout>
 
                 <!--累计消耗-->
@@ -145,7 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_weight="0">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -157,7 +159,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:gravity="center"
-                        android:text="1024"/>
+                        android:id="@+id/usi_sumkcal"
+                        android:text="\?"/>
                 </LinearLayout>
 
             </LinearLayout>

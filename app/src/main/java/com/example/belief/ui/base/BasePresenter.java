@@ -14,7 +14,6 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
-import com.bumptech.glide.load.resource.bitmap.GlideBitmapDrawable;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.belief.data.DataManager;
 import com.example.belief.utils.FileUtils;
@@ -142,7 +141,7 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
     @Override
     public void uploadPic(ImageView imageView, String filename) {
         //FIXME:这才是正确获取图片的方法
-        Bitmap bitmap =  ((GlideBitmapDrawable)imageView.getDrawable()).getBitmap();
+        Bitmap bitmap =  ((BitmapDrawable)imageView.getDrawable()).getBitmap();
         String[] tmps = filename.split("\\.");
         String suffix = tmps[tmps.length-1];
         Log.d("myLog", "图片格式" + suffix);

@@ -7,6 +7,9 @@ import com.example.belief.di.ActivityContext;
 import com.example.belief.ui.comm.CommMvpPresenter;
 import com.example.belief.ui.comm.CommMvpView;
 import com.example.belief.ui.comm.CommPresenter;
+import com.example.belief.ui.recipe.RecipeMvpPresenter;
+import com.example.belief.ui.recipe.RecipeMvpView;
+import com.example.belief.ui.recipe.RecipePresenter;
 import com.example.belief.ui.sport.SportMvpPresenter;
 import com.example.belief.ui.sport.SportMvpView;
 import com.example.belief.ui.sport.SportPresenter;
@@ -72,4 +75,8 @@ public class ActivityModule {
     @Provides
     CommMvpPresenter<CommMvpView>
     privideCommPresenter(CommPresenter<CommMvpView> presenter) { return presenter; }
+
+    @Provides
+    RecipeMvpPresenter<RecipeMvpView>
+    privideRecipePresenter(RecipePresenter<RecipeMvpView> presenter) { return presenter; }
 }

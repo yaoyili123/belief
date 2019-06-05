@@ -57,6 +57,12 @@ public class SportMainFragment extends BaseFragment implements SportMvpView {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        setUp(null);
+    }
+
+    @Override
     protected void setUp(View view) {
         //检查是否登陆，没登陆啥也不干
         if (!MvpApp.get(getContext()).isLogined(getBaseActivity()))

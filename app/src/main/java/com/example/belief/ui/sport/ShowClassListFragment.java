@@ -33,7 +33,7 @@ import butterknife.ButterKnife;
 
 public class ShowClassListFragment extends BaseFragment implements MvpView {
 
-    @BindView(R.id.list_showclass)
+    @BindView(R.id.tablayout_list)
     public SwipeMenuListView listView;
 
     public List<SportClass> classList;
@@ -61,7 +61,7 @@ public class ShowClassListFragment extends BaseFragment implements MvpView {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.sport_class_show_list, container, false);
+        View view = inflater.inflate(R.layout.tablayout_list, container, false);
         setUnbinder(ButterKnife.bind(this, view));
         setUp(view);
         return view;

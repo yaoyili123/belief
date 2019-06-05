@@ -2,11 +2,9 @@ package com.example.belief.ui.user;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -15,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.target.ImageViewTarget;
 import com.example.belief.MvpApp;
 import com.example.belief.R;
@@ -71,19 +68,19 @@ public class PersonalinfoActivity extends BaseActivity implements View.OnClickLi
         setUnbinder(ButterKnife.bind(this));
         setUp();
 
-        if (Build.VERSION.SDK_INT >= 23) {
-            int REQUEST_CODE_CONTACT = 101;
-            String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.READ_EXTERNAL_STORAGE, };
-            //验证是否许可权限
-            for (String str : permissions) {
-                if (this.checkSelfPermission(str) != PackageManager.PERMISSION_GRANTED) {
-                    //申请权限
-                    this.requestPermissions(permissions, REQUEST_CODE_CONTACT);
-                    return;
-                }
-            }
-        }
+//        if (Build.VERSION.SDK_INT >= 23) {
+//            int REQUEST_CODE_CONTACT = 101;
+//            String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE,
+//                    Manifest.permission.READ_EXTERNAL_STORAGE, };
+//            //验证是否许可权限
+//            for (String str : permissions) {
+//                if (this.checkSelfPermission(str) != PackageManager.PERMISSION_GRANTED) {
+//                    //申请权限
+//                    this.requestPermissions(permissions, REQUEST_CODE_CONTACT);
+//                    return;
+//                }
+//            }
+//        }
     }
 
     protected void setUp() {
@@ -159,18 +156,18 @@ public class PersonalinfoActivity extends BaseActivity implements View.OnClickLi
                 // 4、当拍照或从图库选取图片成功后回调
                 Glide.with(PersonalinfoActivity.this)
                         .load(outputUri)
-                        .error(R.drawable.sport_drill)
-                        .into(new ImageViewTarget<GlideDrawable>(image) {
+//                        .error(R.drawable.sport_drill)
+                        .into(new ImageViewTarget<Drawable>(image) {
                             @Override
-                            protected void setResource(GlideDrawable resource) {
+                            protected void setResource(Drawable resource) {
                                 image.setImageDrawable(resource);
                             }
 
-                            @Override
-                            public void onLoadFailed(Exception e, Drawable errorDrawable) {
-                                super.onLoadFailed(e, errorDrawable);
-                                e.printStackTrace();
-                            }
+//                            @Override
+//                            public void onLoadFailed(Exception e, Drawable errorDrawable) {
+//                                super.onLoadFailed(e, errorDrawable);
+//                                e.printStackTrace();
+//                            }
                         });
                 curUser.setPhotoUrl(outputFile.getName());
 

@@ -3,13 +3,11 @@ package com.example.belief.ui.user;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.widget.EditText;
 
 import com.example.belief.MvpApp;
 import com.example.belief.R;
 import com.example.belief.data.network.model.UserAuth;
-import com.example.belief.ui.MainActivity;
 import com.example.belief.ui.base.BaseActivity;
 
 import java.util.Map;
@@ -57,6 +55,8 @@ public class LoginActivity extends BaseActivity
 
     }
 
+
+
     @OnClick(R.id.bt_login)
     public void login() {
         hideKeyboard();
@@ -73,14 +73,20 @@ public class LoginActivity extends BaseActivity
         userMvpPresenter.login(username, password);
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            openMainActivity(null);
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
+    @OnClick(R.id.bt_toRegister)
+    public void toRegister() {
+        Intent intent = RegisterActivity.getStartIntent(this);
+        startActivity(intent);
     }
+
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            openMainActivity(null);
+//            return false;
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
     @Override
     protected void onDestroy() {
@@ -99,8 +105,8 @@ public class LoginActivity extends BaseActivity
             if (image != null)
                 MvpApp.get(this).setUserHead(image);
         }
-        Intent intent = MainActivity.getStartIntent(LoginActivity.this);
-        startActivity(intent);
+//        Intent intent = MainActivity.getStartIntent(LoginActivity.this);
+//        startActivity(intent);
         finish();
     }
 
