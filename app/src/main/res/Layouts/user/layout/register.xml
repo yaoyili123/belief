@@ -10,42 +10,73 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/top_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:background="@color/theme_color_deep"
-        app:title="注册"
+        app:title="注册账号"
         app:titleTextColor="@color/white"
-        app:titleMarginStart="185dp">
+        app:titleMarginStart="150dp">
+
     </android.support.v7.widget.Toolbar>
 
+    <!--输入账号-->
     <EditText
         android:layout_marginTop="50dp"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:textSize="23sp"
         android:hint="输入账号"
+        android:background="@android:color/transparent"
         android:id="@+id/register_un"/>
 
+    <View
+        android:layout_width="350dp"
+        android:layout_height="2dp"
+        android:tag="实线"
+        android:layout_marginTop="10dp"
+        android:background="@color/font_gray" />
+
+    <!--第一次输入密码-->
     <EditText
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:textSize="23sp"
         android:hint="输入密码"
+        android:background="@android:color/transparent"
         android:layout_marginTop="20dp"
         android:id="@+id/register_pw"/>
 
+    <View
+        android:layout_width="350dp"
+        android:layout_height="2dp"
+        android:tag="实线"
+        android:layout_marginTop="10dp"
+        android:background="@color/font_gray" />
+
+    <!--再次输入密码-->
     <EditText
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:textSize="23sp"
-        android:hint="重复密码"
+        android:hint="再次入密码"
+        android:background="@android:color/transparent"
         android:layout_marginTop="20dp"
         android:id="@+id/register_repw"/>
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="2dp"
+        android:tag="实线"
+        android:layout_marginTop="10dp"
+        android:background="@color/font_gray" />
 
     <Button
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="25dp"
-        android:text="注册"
+        android:text="立即登录"
+        android:textColor="@color/bg_white"
+        android:background="@drawable/btn_normal_mine"
         android:id="@+id/bt_register"/>
+
 
 </LinearLayout>

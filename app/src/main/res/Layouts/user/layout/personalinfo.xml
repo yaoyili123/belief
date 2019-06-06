@@ -189,10 +189,21 @@
         android:background="@drawable/line_solid" />
 
     <Button
-        android:id="@+id/bt_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="保存" />
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="45dp"
+        android:layout_gravity="center"
+        android:text="保存"
+        android:textSize="18sp"
+        android:textColor="@color/bg_white"
+        android:background="@drawable/btn_normal_mine"
+        android:id="@+id/bt_update"/>
+
+    <!--<Button-->
+        <!--android:id="@+id/bt_update"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="保存" />-->
 
 
 </LinearLayout>

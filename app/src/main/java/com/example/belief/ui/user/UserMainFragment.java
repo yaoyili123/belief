@@ -111,7 +111,7 @@ public class UserMainFragment extends BaseFragment implements UserMvpView{
     protected void setUp(View view) {
         Glide.with(this).load(R.drawable.unlogined).into(imageView);
         mName.setText("未登录");
-        mSex.setText("？");
+//        mSex.setText("？");
         if (MvpApp.get(getBaseActivity()).isLogined(getBaseActivity())) {
             userMvpPresenter.getUserInfo(MvpApp.get(getContext()).getCurUser().getUid());
             userMvpPresenter.getSportInfo(MvpApp.get(getContext()).getCurUser().getUid());

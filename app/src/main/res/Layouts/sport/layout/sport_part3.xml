@@ -31,13 +31,23 @@
 
             <Button
                 android:id="@+id/bt_addClass"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_width="140dp"
+                android:layout_height="45dp"
                 android:layout_marginRight="30dp"
                 android:text="@string/add_class"
                 android:background="@drawable/btn_circle_mine"
                 android:textColor="@color/white"
-              />
+                />
+
+            <!--<Button-->
+                <!--android:id="@+id/bt_addClass"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:layout_marginRight="30dp"-->
+                <!--android:text="@string/add_class"-->
+                <!--android:background="@drawable/btn_circle_mine"-->
+                <!--android:textColor="@color/white"-->
+              <!--/>-->
 
         </LinearLayout>
 

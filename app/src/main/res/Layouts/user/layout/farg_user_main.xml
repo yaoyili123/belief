@@ -5,6 +5,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/bg_white"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="180dp"-->
+            <!--android:background="@color/theme_color_deep">-->
+
+            <!--<de.hdodenhof.circleimageview.CircleImageView-->
+                <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+                <!--android:layout_width="80dp"-->
+                <!--android:layout_height="80dp"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_marginTop="50dp"-->
+                <!--android:id="@+id/user_main_head"-->
+                <!--android:src="@drawable/sport_drill" />-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="40dp"-->
+                    <!--android:layout_marginTop="55dp"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--android:id="@+id/user_main_name"-->
+                    <!--android:text="人鱼线的pdd" />-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="40dp"-->
+                    <!--android:layout_marginTop="15dp"-->
+                    <!--android:id="@+id/user_main_sex"-->
+                    <!--android:text="@string/male"-->
+                    <!--android:textColor="@color/white" />-->
+            <!--</LinearLayout>-->
+
+
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="80dp"-->
+                <!--android:layout_marginTop="70dp"-->
+                <!--android:id="@+id/bt_update_info"-->
+                <!--android:background="@drawable/button_edge"-->
+                <!--android:text="@string/edit"-->
+                <!--android:textColor="@color/white" />-->
+
+        <!--</LinearLayout>-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,6 +70,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/bt_update_info"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:background="@color/theme_color_deep">
@@ -20,7 +79,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="45dp"
                 android:layout_marginTop="50dp"
                 android:id="@+id/user_main_head"
                 android:src="@drawable/sport_drill" />
@@ -34,32 +93,23 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="45dp"
                     android:layout_marginTop="55dp"
-                    android:textColor="@color/white"
+                    android:text="人鱼线的pdd"
                     android:id="@+id/user_main_name"
-                    android:text="人鱼线的pdd" />
+                    android:textColor="@color/white"
+                    android:textSize="19sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="12dp"
+                    android:text="查看主页或编辑资料"
                     android:id="@+id/user_main_sex"
-                    android:text="@string/male"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/tiao" />
             </LinearLayout>
 
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="70dp"
-                android:id="@+id/bt_update_info"
-                android:background="@drawable/button_edge"
-                android:text="@string/edit"
-                android:textColor="@color/white" />
 
         </LinearLayout>
 

@@ -52,7 +52,7 @@ public class CommDetailActivity extends BaseActivity implements CommMvpView {
 
     public void setData(ShareInfoResponse data) {
         shareInfo = data;
-        commMvpPresenter.downPic(shareInfo.getHeadUrl(), vHead);
+        commMvpPresenter.downPicToCircle(shareInfo.getHeadUrl(), vHead);
         commMvpPresenter.downPic(shareInfo.getPhotoUrl(), vImage);
         vName.setText(shareInfo.getTitle());
         vContent.setText(shareInfo.getContent());
