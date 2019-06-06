@@ -2,7 +2,6 @@ package com.example.belief.ui.comm;
 
 import android.Manifest;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.ImageViewTarget;
 import com.example.belief.MvpApp;
 import com.example.belief.R;
 import com.example.belief.data.network.model.RequestShare;
@@ -83,18 +81,7 @@ public class AddShareActivity extends BaseActivity implements CommMvpView {
                 Glide.with(AddShareActivity.this)
                         .load(outputUri)
 //                        .error(R.drawable.sport_drill)
-                        .into(new ImageViewTarget<Drawable>(mPic) {
-                            @Override
-                            protected void setResource(Drawable resource) {
-                                mPic.setImageDrawable(resource);
-                            }
-
-//                            @Override
-//                            public void onLoadFailed(Exception e, Drawable errorDrawable) {
-//                                super.onLoadFailed(e, errorDrawable);
-//                                e.printStackTrace();
-//                            }
-                        });
+                        .into(mPic);
                 shareInfo.setPhotoUrl(outputFile.getName());
 
             }

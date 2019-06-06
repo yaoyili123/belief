@@ -8,7 +8,7 @@
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="70dp"
         android:gravity="center_vertical"
         android:background="@color/theme_color_deep">
 
@@ -19,18 +19,19 @@
             android:text="@string/top_title_comm"
             android:textSize="20sp"
             android:textColor="@color/white"
-            android:layout_marginLeft="130dp" />
+            android:layout_marginLeft="160dp" />
 
         <ImageView
             android:id="@+id/bt_addShare"
             android:layout_width="35dp"
-            android:layout_height="31dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="120dp"
             android:src="@drawable/ic_share" />
 
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="10dp"
         android:id="@+id/rec_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

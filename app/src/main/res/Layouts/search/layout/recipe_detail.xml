@@ -15,11 +15,11 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:id="@+id/recipe_title"
-            android:layout_height="65dp"
+            android:layout_height="70dp"
             android:background="@color/theme_color_deep"
             app:title="食谱详情"
             app:titleTextColor="@color/white"
-            app:titleMarginStart="150dp">
+            app:titleMarginStart="165dp">
         </android.support.v7.widget.Toolbar>
 
 
@@ -67,10 +67,12 @@
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:orientation="horizontal">
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
                 <TextView
@@ -78,6 +80,7 @@
                     android:layout_height="wrap_content"
                     android:text="225"
                     android:id="@+id/recipe_d_kcal"
+                    android:layout_gravity="center_horizontal"
                     android:textSize="30sp">
                 </TextView>
 
@@ -86,13 +89,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/detail_kcal"
                     android:textSize="15sp"
-                    android:layout_gravity="center"></TextView>
+                    android:layout_gravity="center_horizontal"></TextView>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
                 <TextView
@@ -100,6 +104,7 @@
                     android:layout_height="wrap_content"
                     android:text="225"
                     android:id="@+id/recipe_d_ts"
+                    android:layout_gravity="center_horizontal"
                     android:textSize="30sp">
                 </TextView>
 
@@ -108,13 +113,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/detail_cw"
                     android:textSize="15sp"
-                    android:layout_gravity="center"></TextView>
+                    android:layout_gravity="center_horizontal"></TextView>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
                 <TextView
@@ -122,6 +128,7 @@
                     android:layout_height="wrap_content"
                     android:text="225"
                     android:id="@+id/recipe_d_dbz"
+                    android:layout_gravity="center_horizontal"
                     android:textSize="30sp">
                 </TextView>
 
@@ -130,13 +137,15 @@
                     android:layout_height="wrap_content"
                     android:text="@string/detail_pro"
                     android:textSize="15sp"
-                    android:layout_gravity="center"></TextView>
+                    android:layout_gravity="center_horizontal">
+                </TextView>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
                 <TextView
@@ -144,6 +153,7 @@
                     android:layout_height="wrap_content"
                     android:text="225"
                     android:id="@+id/recipe_d_fat"
+                    android:layout_gravity="center_horizontal"
                     android:textSize="30sp">
                 </TextView>
 
@@ -152,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/detail_fat"
                     android:textSize="15sp"
-                    android:layout_gravity="center"></TextView>
+                    android:layout_gravity="center_horizontal"></TextView>
             </LinearLayout>
 
 
@@ -170,11 +180,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="食材"
-                android:textSize="20sp"
-                android:layout_marginLeft="30dp"></TextView>
+                android:textSize="25sp"
+                android:layout_marginLeft="35dp"></TextView>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/lv_2"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="350dp">
 

@@ -21,6 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginTop="10dp"
             android:gravity="right">
 
             <ImageView
@@ -31,7 +32,7 @@
             <Button
                 android:id="@+id/bt_addClass"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_marginRight="30dp"
                 android:text="@string/add_class"
                 android:background="@drawable/btn_circle_mine"

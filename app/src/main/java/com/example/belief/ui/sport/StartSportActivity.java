@@ -111,7 +111,7 @@ public class StartSportActivity extends BaseActivity implements SportMvpView {
         Log.d("privousTask", "curTaskOrder: " + curTaskOrder);
         switchView(curAction);
         taskState = TaskState.NOTSTARTED;
-        TaskStart.setBackground(getResources().getDrawable(R.drawable.ic_g_start));
+        TaskStart.setBackground(getResources().getDrawable(R.drawable.ic_g_continue));
     }
 
     @OnClick(R.id.task_next)
@@ -137,7 +137,7 @@ public class StartSportActivity extends BaseActivity implements SportMvpView {
         curAction = actionList.get(curTaskOrder++);
         switchView(curAction);
         taskState = TaskState.NOTSTARTED;
-        TaskStart.setBackground(getResources().getDrawable(R.drawable.ic_g_start));
+        TaskStart.setBackground(getResources().getDrawable(R.drawable.ic_g_continue));
     }
 
     private void switchView(SportAction action) {
@@ -159,7 +159,7 @@ public class StartSportActivity extends BaseActivity implements SportMvpView {
             case NOTSTARTED: case STOP:{
                 mChronometer.setBase(SystemClock.elapsedRealtime());
                 mChronometer.start();
-                TaskStart.setBackground(getResources().getDrawable(R.drawable.ic_stop));
+                TaskStart.setBackground(getResources().getDrawable(R.drawable.ic_g_continue));
                 taskState = TaskState.STARTED;
                 break;
             }
@@ -167,7 +167,7 @@ public class StartSportActivity extends BaseActivity implements SportMvpView {
                 mChronometer.stop();
                 sumUpTime();
                 taskState = TaskState.STOP;
-                TaskStart.setBackground(getResources().getDrawable(R.drawable.ic_g_start));
+                TaskStart.setBackground(getResources().getDrawable(R.drawable.ic_g_pause));
                 break;
             }
             default:break;

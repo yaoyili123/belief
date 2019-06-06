@@ -12,11 +12,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.belief.MvpApp;
 import com.example.belief.R;
 import com.example.belief.data.network.model.ShareInfoResponse;
 import com.example.belief.di.component.ActivityComponent;
 import com.example.belief.ui.base.BaseFragment;
+import com.example.belief.ui.user.LoginActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -34,7 +37,7 @@ public class CommMainFragment extends BaseFragment implements CommMvpView {
     @BindView(R.id.rec_view)
     public RecyclerView recyclerView;
 
-    public List<ShareInfoResponse> shareInfoResponseList;
+    public List<ShareInfoResponse> shareInfoResponseList = new ArrayList<>();
 
     public CommListAdapter adapter;
 
@@ -68,7 +71,6 @@ public class CommMainFragment extends BaseFragment implements CommMvpView {
     @Override
     protected void setUp(View view) {
         commMvpPresenter.getCommListData();
-
         adapter = new CommListAdapter();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
@@ -133,6 +135,10 @@ public class CommMainFragment extends BaseFragment implements CommMvpView {
 
     @OnClick(R.id.bt_addShare)
     public void toAddShare() {
+        if (!MvpApp.get(getContext()).isLogined(getBaseActivity())) {
+            getBaseActivity().startActivity(LoginActivity.getStartIntent(getBaseActivity()));
+            return;
+        }
         Intent intent=new Intent(getContext(), AddShareActivity.class);
         getActivity().startActivity(intent);
     }

@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <RelativeLayout
+    <!--复用TOOLBar-->
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/top_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="70dp"
+        android:background="@color/theme_color_deep"
+        app:title="分类菜谱"
+        app:titleTextColor="@color/white"
+        app:titleMarginStart="165dp">
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/menukind_tv_1"
@@ -13,27 +30,34 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:text="@string/menu_kind"
-            android:textSize="30sp"></TextView>
+            android:textSize="30sp"/>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/menukind_tv_1"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="170dp"
+                android:id="@+id/recipe_type_bf"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/recipe_bf"></ImageView>
+                android:scaleX="0.9"
+                android:scaleY="0.9"
+                android:src="@drawable/recipe_bf">
+            </ImageView>
 
             <ImageView
-                android:layout_width="170dp"
+                android:id="@+id/recipe_2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/recipe_bf"></ImageView>
+                android:scaleY="0.9"
+                android:scaleX="0.9"
+                android:src="@drawable/recipe_bf">
+            </ImageView>
 
-        </RelativeLayout>
-    </RelativeLayout>
-</RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

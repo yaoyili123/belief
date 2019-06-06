@@ -5,10 +5,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/top_toolbar"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="70dp"
     android:background="@color/theme_color_deep"
     app:title="课程介绍"
     app:titleTextColor="@color/white"
-    app:titleMarginStart="150dp">
+    app:titleMarginStart="165dp">
 
 </android.support.v7.widget.Toolbar>

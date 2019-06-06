@@ -136,7 +136,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void setUp() {
         //setSupportActionBar(mTitle);
-        BNVEffect.disableShiftMode(bnv);
+//        BNVEffect.disableShiftMode(bnv);
         bnv.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         SupportFragment firstFragment = findFragment(SportMainFragment.class);

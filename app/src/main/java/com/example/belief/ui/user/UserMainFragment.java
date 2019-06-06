@@ -127,7 +127,9 @@ public class UserMainFragment extends BaseFragment implements UserMvpView{
     }
 
     public void setSportInfo(UserSportInfo sportInfo) {
-        tTotalTime.setText(sportInfo.getTotalSportTime().toString());
+        Integer totalName =  sportInfo.getTotalSportTime();
+        Integer tmp = totalName / 60;
+        tTotalTime.setText(tmp.toString());
         tToday.setText(sportInfo.getTodayKcal().toString());
         tSumKcal.setText(sportInfo.getTotalKcal().toString());
     }

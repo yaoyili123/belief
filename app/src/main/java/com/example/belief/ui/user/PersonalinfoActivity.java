@@ -146,6 +146,7 @@ public class PersonalinfoActivity extends BaseActivity implements View.OnClickLi
     public void updateInfo() {
         userMvpPresenter.uploadPic(image, curUser.getPhotoUrl());
         userMvpPresenter.updateUserInfo(curUser);
+        MvpApp.get(this).setUserHead(curUser.getPhotoUrl());
     }
 
     private void initImgSelected() {
@@ -170,7 +171,6 @@ public class PersonalinfoActivity extends BaseActivity implements View.OnClickLi
 //                            }
                         });
                 curUser.setPhotoUrl(outputFile.getName());
-
             }
         }, false);//true裁剪，false不裁剪
 
@@ -253,8 +253,13 @@ public class PersonalinfoActivity extends BaseActivity implements View.OnClickLi
                 curUser.setCity(province.getAreaName() + " " + city.getAreaName());
             }
         });
-        String[] tmps = curUser.getCity().split(" ");
-        task.execute(tmps[0], tmps[1]);
+        if (curUser.getCity() != null) {
+            String[] tmps = curUser.getCity().split(" ");
+            task.execute(tmps[0], tmps[1]);
+        }
+        else {
+            task.execute("浙江省", "杭州市");
+        }
     }
 
     public void onYearMonthDayPicker(View view) {
@@ -264,11 +269,17 @@ public class PersonalinfoActivity extends BaseActivity implements View.OnClickLi
         picker.setTopPadding(15);
         picker.setRangeStart(1900, 8, 29);
         picker.setRangeEnd(2111, 1, 11);
-        String cury = curUser.getBothday().substring(0, 4);
-        String curm = curUser.getBothday().substring(5, 7);
-        String curd = curUser.getBothday().substring(8, 10);
-        picker.setSelectedItem(Integer.parseInt(cury),
-                Integer.parseInt(curm), Integer.parseInt(curd));
+        if (curUser.getBothday() != null) {
+            String cury = curUser.getBothday().substring(0, 4);
+            String curm = curUser.getBothday().substring(5, 7);
+            String curd = curUser.getBothday().substring(8, 10);
+            picker.setSelectedItem(Integer.parseInt(cury),
+                    Integer.parseInt(curm), Integer.parseInt(curd));
+        }
+        else {
+            picker.setSelectedItem(1991, 1, 1);
+        }
+
         picker.setWeightEnable(true);
         picker.setLineColor(Color.BLACK);
         picker.setOnDatePickListener(new DatePicker.OnYearMonthDayPickListener() {

@@ -166,7 +166,11 @@
             </LinearLayout>
 
         </LinearLayout>
-        <include layout="@layout/user_part"/>
+        <include
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            layout="@layout/user_part"/>
 
     </LinearLayout>
 

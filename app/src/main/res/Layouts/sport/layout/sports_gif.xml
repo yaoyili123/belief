@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:background="@drawable/ic_g_left"
-                android:layout_marginRight="90dp">
+                android:layout_marginRight="50dp">
 
             </Button>
 
@@ -115,7 +115,7 @@
                 android:id="@+id/task_start"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:background="@drawable/ic_g_start">
+                android:background="@drawable/ic_g_pause">
 
             </Button>
 
@@ -123,8 +123,8 @@
                 android:id="@+id/task_next"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:background="@drawable/ic_right"
-                android:layout_marginLeft="90dp">
+                android:background="@drawable/ic_g_right"
+                android:layout_marginLeft="50dp">
 
             </Button>
 

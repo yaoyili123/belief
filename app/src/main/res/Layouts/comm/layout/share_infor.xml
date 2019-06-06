@@ -9,7 +9,7 @@
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="70dp"
         android:gravity="center_vertical"
         android:background="@color/theme_color_shallow">
 
@@ -28,13 +28,13 @@
             android:textSize="25sp"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:layout_marginLeft="120dp" />
+            android:layout_marginLeft="160dp" />
 
         <ImageView
             android:id="@+id/bt_share"
             android:layout_width="35dp"
-            android:layout_height="31dp"
-            android:layout_marginLeft="120dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="100dp"
             android:src="@drawable/ic_share" />
 
     </LinearLayout>
@@ -50,7 +50,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="66dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:text="标题："
                 android:textSize="25dp" />
@@ -58,7 +58,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="20dp"
                 android:id="@+id/addShare_title"
                 android:hint="跟三木老师一起学习很开心！"
                 android:maxLines="8"
@@ -74,7 +74,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="内容："
             android:textSize="25dp" />
@@ -82,7 +82,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/addShare_content"
             android:hint="跟三木老师一起学习很开心！"
             android:maxLines="8"
@@ -94,6 +94,7 @@
         android:layout_height="wrap_content"
         android:text="上传照片"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:textSize="20dp" />
 
     <LinearLayout
@@ -103,8 +104,8 @@
 
         <ImageView
             android:id="@+id/addShare_pic"
-            android:layout_width="253dp"
-            android:layout_height="222dp"
+            android:layout_width="250dp"
+            android:layout_height="220dp"
             android:layout_marginLeft="10dp"
             android:src="@drawable/unlogined" />
     </LinearLayout>
