@@ -1,5 +1,5 @@
 # belief
-App developing course work，View层界面架构为多Activity多Fragment，采用MVP模式分离页面逻辑和业务逻辑，降低了耦合性
+安卓开发作业，很native的健身APP，View层界面架构为多Activity多Fragment，采用MVP模式分离页面逻辑和业务逻辑，降低了耦合性
 
 # 包结构
 
