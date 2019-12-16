@@ -1,5 +1,5 @@
 # belief
-是一款大作业级别的健身APP，View层界面架构为多Activity多Fragment，采用MVP模式分离界面逻辑和业务逻辑，降低了耦合性
+是一款大作业级别的健身原生安卓APP，View层界面架构为多Activity多Fragment，采用MVP模式分离界面逻辑和业务逻辑，降低了耦合性
 
 # 包结构
 
